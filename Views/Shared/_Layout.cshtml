@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Chemistrack</title>
+    <link href="~/Public/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/Public/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="~/Public/css/style.css" rel="stylesheet"/>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-section">
+                <a href=""><img src="~/Public/images/logo.png" alt="ChemisTrack" /></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="body">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+
+        </div>
+    </footer>
+
+</body>
+    <script src="~/Public/js/jquery-1.11.3.min.js"></script>
+    <script src="~/Public/js/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</html>

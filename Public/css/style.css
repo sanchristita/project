@@ -1,0 +1,51 @@
+﻿body {
+    font-size: 14px;
+}
+
+/*button overriden styles*/
+
+.btn.btn-primary{
+    background: #1abc9c none repeat scroll 0 0;
+    border: 0;
+    min-width: 180px;
+}
+
+div.header-section
+{
+    height: 80px;
+    padding: 10px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    -moz-box-shadow: 0px 3px 7px #ddd;
+    -webkit-box-shadow: 0px 3px 7px #ddd;
+    box-shadow: 0px 3px 7px #ddd;
+    background-color: #f6f6f6;
+    width: 100%;
+}
+
+.body .home-container{
+    padding: 100px 0;
+    text-align: center;
+}
+
+.registration-form{
+    margin: auto;
+    width: 320px;
+}
+
+/*main page styles*/
+
+.actions-group {
+    text-align: center;
+    padding: 50px;
+}
+
+    .actions-group .main-action {
+        padding: 30px 20px;
+        margin: 20px;
+        background: #1abc9c;
+        color: #ffffff;
+        font-size: 20px;
+        text-align: center;
+    }

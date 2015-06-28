@@ -1,0 +1,36 @@
+﻿@model ChemisTrackCrud.Models.ClaimsModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ClaimsModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StudentID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StudentID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EquipmentID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EquipmentID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Quantity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quantity)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ClaimID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

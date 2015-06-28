@@ -1,0 +1,78 @@
+﻿@model ChemisTrackCrud.Models.ChemicalsModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ChemicalsModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ChemicalName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChemicalName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ScientificName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ScientificName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nature)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nature)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Color)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Color)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Odour)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Odour)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MeltingPoint)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MeltingPoint)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BoilingPoint)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BoilingPoint)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Flamable)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Flamable)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Toxicity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Toxicity)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ChemicalID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

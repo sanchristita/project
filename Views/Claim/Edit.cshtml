@@ -1,0 +1,53 @@
+﻿@model ChemisTrackCrud.Models.ClaimsModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit","Claim",FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ClaimsModel</legend>
+
+        @Html.HiddenFor(model => model.ClaimID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StudentID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StudentID)
+            @Html.ValidationMessageFor(model => model.StudentID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EquipmentID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EquipmentID)
+            @Html.ValidationMessageFor(model => model.EquipmentID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quantity)
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
