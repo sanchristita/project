@@ -10,9 +10,23 @@ namespace ChemisTrackCrud.Models
     {
         [Key]
         public int EquipmentID { get; set; }
+
+        [Required]
+        [Display(Name = "Equipment Name")]
         public string EquipmentName { get; set; }
+
+        [Display(Name = "Model Type")]
+        public string Model { get; set; }
+
+        [Required]
+        [Display(Name = "Quantity")]
         public string Quantity { get; set; }
-        public string Price { get; set; }
-        public string Type { get; set; }
+
+        [Display(Name = "Remarks")]
+        public string Remarks { get; set; }
+
+        [Required]
+        [Display(Name="Allow Claim ")]
+        public bool ClaimType { get; set; }
     }
 }

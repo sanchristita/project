@@ -123,6 +123,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ChemicalController.cs" />
+    <Compile Include="Controllers\ChemicalInventoryController.cs" />
     <Compile Include="Controllers\ClaimController.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChemicalsInventoryModel.cs" />
     <Compile Include="Models\ChemicalsModel.cs" />
     <Compile Include="Models\ClaimsModel.cs" />
     <Compile Include="Models\Context.cs" />
@@ -232,11 +234,6 @@
     <Content Include="Views\Chemical\Edit.cshtml" />
     <Content Include="Views\Chemical\Delete.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Equipment\Index.cshtml" />
-    <Content Include="Views\Equipment\Details.cshtml" />
-    <Content Include="Views\Equipment\Create.cshtml" />
-    <Content Include="Views\Equipment\Edit.cshtml" />
-    <Content Include="Views\Equipment\Delete.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
     <Content Include="Views\Student\Create.cshtml" />
@@ -247,6 +244,16 @@
     <Content Include="Views\Claim\Create.cshtml" />
     <Content Include="Views\Claim\Edit.cshtml" />
     <Content Include="Views\Claim\Delete.cshtml" />
+    <Content Include="Views\Equipment\Index.cshtml" />
+    <Content Include="Views\Equipment\Details.cshtml" />
+    <Content Include="Views\Equipment\Create.cshtml" />
+    <Content Include="Views\Equipment\Edit.cshtml" />
+    <Content Include="Views\Equipment\Delete.cshtml" />
+    <Content Include="Views\ChemicalInventory\Index.cshtml" />
+    <Content Include="Views\ChemicalInventory\Details.cshtml" />
+    <Content Include="Views\ChemicalInventory\Create.cshtml" />
+    <Content Include="Views\ChemicalInventory\Edit.cshtml" />
+    <Content Include="Views\ChemicalInventory\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

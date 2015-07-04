@@ -1,0 +1,78 @@
+﻿@model ChemisTrackCrud.Models.ChemicalsInventoryModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ChemicalsInventoryModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Chemicals.ChemicalName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Chemicals.ChemicalName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SupplierName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SupplierName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Quantity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quantity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UnitPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UnitPrice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Amount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Amount)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GRN_No)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GRN_No)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StockBalance)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StockBalance)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ChemicalsInventoryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

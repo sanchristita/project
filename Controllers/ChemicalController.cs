@@ -16,9 +16,37 @@ namespace ChemisTrackCrud.Controllers
         //
         // GET: /Chemical/
 
+        /*
         public ActionResult Index()
         {
             return View(db.Chemicals.ToList());
+        }
+        */
+        
+        public ViewResult Index(string Chemicals, string strSearch)
+        {
+            //Select all Chemicals Names records
+            var iupac = from i in db.Chemicals
+                select i;
+
+            //Get list of Chemical Names
+            var chemicalList = from c in iupac
+                orderby c.ChemicalName
+                select c.ChemicalName;
+
+            //Set distinct list of Chemicalname in ViewBag property
+            ViewBag.ChemicalNames = new SelectList(chemicalList.Distinct());
+
+            //Search records by Chemical Name 
+            if (!string.IsNullOrEmpty(strSearch))
+                iupac = iupac.Where(m => m.ChemicalName.Contains(strSearch));
+
+            //Search records by Publisher
+            if (!string.IsNullOrEmpty(Chemicals))
+                iupac = iupac.Where(m => m.ChemicalName == Chemicals);
+            return View(iupac);
+
+
         }
 
         //

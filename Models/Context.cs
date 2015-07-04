@@ -12,5 +12,6 @@ namespace ChemisTrackCrud.Models
         public DbSet<EquipmentsModel> Equipments { get; set; }
         public DbSet<StudentsModel> Students { get; set; }
         public DbSet<ClaimsModel> Claims { get; set; }
+        public DbSet<ChemicalsInventoryModel> ChemicalsInventory { get; set; }
     }
 }

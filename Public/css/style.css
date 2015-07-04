@@ -49,3 +49,11 @@ div.header-section
         font-size: 20px;
         text-align: center;
     }
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}

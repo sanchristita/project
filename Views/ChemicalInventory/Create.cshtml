@@ -1,0 +1,69 @@
+﻿@model ChemisTrackCrud.Models.ChemicalsInventoryModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create","ChemicalsInventory",FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.ChemicalID, "Chemicals", new {@class = "col-sm-4 text-right" })
+            <div class="col-sm-6 form-control">@Html.DropDownList("ChemicalID", String.Empty)</div>
+            @Html.ValidationMessageFor(model => model.ChemicalID)
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.Date, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.Date, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.OrderNo, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.OrderNo, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.OrderNo)
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.SupplierName, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.SupplierName, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.SupplierName)
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.Quantity, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.Quantity, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.UnitPrice, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.UnitPrice, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.UnitPrice)
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.GRN_No, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.GRN_No, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.GRN_No)
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.StockBalance, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.StockBalance, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.StockBalance)
+        </div>
+
+        <p class="col-sm-10 text-center">
+            <input type="submit" value="Create" class="btn btn-success"  />
+            @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
+        </p>
+    
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

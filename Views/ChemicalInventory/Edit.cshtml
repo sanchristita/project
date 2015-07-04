@@ -1,0 +1,93 @@
+﻿@model ChemisTrackCrud.Models.ChemicalsInventoryModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ChemicalsInventoryModel</legend>
+
+        @Html.HiddenFor(model => model.ChemicalsInventoryID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChemicalID, "Chemicals")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ChemicalID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ChemicalID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrderNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrderNo)
+            @Html.ValidationMessageFor(model => model.OrderNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SupplierName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SupplierName)
+            @Html.ValidationMessageFor(model => model.SupplierName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quantity)
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UnitPrice)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UnitPrice)
+            @Html.ValidationMessageFor(model => model.UnitPrice)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GRN_No)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GRN_No)
+            @Html.ValidationMessageFor(model => model.GRN_No)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StockBalance)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StockBalance)
+            @Html.ValidationMessageFor(model => model.StockBalance)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

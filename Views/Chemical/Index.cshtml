@@ -4,20 +4,41 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Chemical Properties</h2> 
+<h2>@Html.ActionLink("Availability", "Index", "ChemicalInventory")</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Chemical", "Create")
 </p>
+
+@using (Html.BeginForm("Index", "Chemical", FormMethod.Get))
+{
+    <p>
+        Chemical Name : @Html.DropDownList("ChemicalNames","All")
+        IUPAC Name : @Html.TextBox("strSearch")
+
+        <input type="Submit" value="Search"/>
+    </p> 
+}
+
 <div class="table-responsive">
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped">
         <tr>
-            <th>
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.ChemicalName)
             </th>
-            <th>
+
+            <th class="text-center">
                 @Html.DisplayNameFor(model => model.ScientificName)
             </th>
+
+            <th class="text-center">
+                @Html.Label("Actions")
+            </th>
+
+
+            <!--
+
             <th>
                 @Html.DisplayNameFor(model => model.Nature)
             </th>
@@ -34,23 +55,31 @@
                 @Html.DisplayNameFor(model => model.BoilingPoint)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Flamable)
+                @Html.DisplayNameFor(model => model.Flammable)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Toxicity)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.HazardousWaste)
+            </th>
+                
+            --> 
         </tr>
 
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.ChemicalName)
                 </td>
-                <td>
+
+                <td class="text-center">
                     @Html.DisplayFor(modelItem => item.ScientificName)
                 </td>
+
+                <!--
+
                 <td>
                     @Html.DisplayFor(modelItem => item.Nature)
                 </td>
@@ -67,15 +96,21 @@
                     @Html.DisplayFor(modelItem => item.BoilingPoint)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Flamable)
+                    @Html.DisplayFor(modelItem => item.Flammable)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Toxicity)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.HazardousWaste)
+                </td>
+                
+                -->
+
+                <td class="text-center">
                     @Html.ActionLink("Edit", "Edit", new { id = item.ChemicalID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ChemicalID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ChemicalID })
+                    @Html.ActionLink("Details", "Details", new { id = item.ChemicalID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ChemicalID })
                 </td>
             </tr>
         }

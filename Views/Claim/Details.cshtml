@@ -6,31 +6,22 @@
 
 <h2>Details</h2>
 
-<fieldset>
-    <legend>ClaimsModel</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.StudentID)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.StudentID)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.StudentID) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.StudentID)</div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.EquipmentID)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.EquipmentID)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.EquipmentID) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.EquipmentID)</div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Quantity)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Quantity) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Quantity)</div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Quantity)
-    </div>
-</fieldset>
-<p>
+
+<p class="col-sm-8 text-center">
     @Html.ActionLink("Edit", "Edit", new { id=Model.ClaimID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
 </p>

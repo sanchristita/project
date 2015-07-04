@@ -7,75 +7,57 @@
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>ChemicalsModel</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.ChemicalName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ChemicalName)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.ChemicalName) : </div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.ChemicalName) </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.ScientificName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ScientificName)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.ScientificName) : </div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.ScientificName) </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nature)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nature)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Nature) : </div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.Nature) </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Color)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Color)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Color) : </div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.Color) </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Odour)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Odour)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Odour) : </div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.Odour) </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.MeltingPoint)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.MeltingPoint)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.MeltingPoint) : </div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.MeltingPoint) </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.BoilingPoint)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.BoilingPoint)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.BoilingPoint) : </div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.BoilingPoint) </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Flamable)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Flamable)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Flammable) : </div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.Flammable) </div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Toxicity)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Toxicity) : </div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.Toxicity) </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Toxicity)
-    </div>
-</fieldset>
+
+
 @using (Html.BeginForm("Delete","Chemical",FormMethod.Post)) {
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+    
+    <p  class="col-sm-10 text-center">
+        <input type="submit" value="Delete" , new { id=Model.ChemicalID}/> |
+        @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
     </p>
 }
