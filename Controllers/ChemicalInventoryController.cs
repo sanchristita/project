@@ -30,8 +30,8 @@ namespace ChemisTrackCrud.Controllers
                         select j;
 
             var chemicalInventoryList = from c in iupac
-                               orderby c.ChemicalName
-                               select c.ChemicalName;
+                               orderby c.Chemicals.ChemicalName
+                               select c.Chemicals.ChemicalName;
 
             ViewBag.ChemicalInventoryNames = new SelectList(chemicalInventoryList.Distinct());
             
