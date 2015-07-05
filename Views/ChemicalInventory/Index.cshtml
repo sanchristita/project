@@ -10,6 +10,17 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
+<!-- Search chemicals by its Chemical Name or IUPAC Name -->
+@using (Html.BeginForm("Index", "ChemicalInventory", FormMethod.Get))
+{
+    <p>
+        Chemical Name : @Html.DropDownList("ChemicalInventoryNames","All")
+        IUPAC Name : @Html.TextBox("strSearch")
+
+        <input type="Submit" value="Search"/>
+    </p> 
+}
+
 
 <table>
     <tr>

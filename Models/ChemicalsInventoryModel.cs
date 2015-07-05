@@ -18,7 +18,7 @@ namespace ChemisTrackCrud.Models
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Order No must be an integer value.")]
         [Display(Name = "Order No")]
         public int OrderNo { get; set; }
 
@@ -29,11 +29,9 @@ namespace ChemisTrackCrud.Models
         [Required]
         [Display(Name = "Quantity")]
         public decimal Quantity { get; set; }
-
+        
         [Required]
         [Display(Name = "Unit Price")]
-        [Range(1,100)]
-        [DataType(DataType.Currency)]
         public decimal UnitPrice { get; set; }
 
         [Display(Name = "Amount")]

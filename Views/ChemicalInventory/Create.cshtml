@@ -6,12 +6,12 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm("Create","ChemicalsInventory",FormMethod.Post)) {
+@using (Html.BeginForm("Create","ChemicalInventory",FormMethod.Post)) {
     @Html.ValidationSummary(true)
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.ChemicalID, "Chemicals", new {@class = "col-sm-4 text-right" })
-            <div class="col-sm-6 form-control">@Html.DropDownList("ChemicalID", String.Empty)</div>
+            <div class="col-sm-6 form-control">@Html.DropDownList("ChemicalID", string.Empty)</div>
             @Html.ValidationMessageFor(model => model.ChemicalID)
         </div>
 
