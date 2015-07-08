@@ -6,12 +6,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ChemisTrackCrud.Models;
+using System.Dynamic;
 
 namespace ChemisTrackCrud.Controllers
 {
     public class ChemicalInventoryController : Controller
     {
         private Context db = new Context();
+
+        
 
         //
         // GET: /ChemicalInventory/
@@ -26,7 +29,7 @@ namespace ChemisTrackCrud.Controllers
 
         public ViewResult Index(string ChemicalInventories, string strSearch)
         {
-            var iupac = from j in db.ChemicalsInventory
+            var iupac = from j in db.ChemicalsInventory.Include(c => c.Chemicals)
                         select j;
 
             var chemicalInventoryList = from c in iupac
@@ -57,7 +60,40 @@ namespace ChemisTrackCrud.Controllers
                 return HttpNotFound();
             }
             return View(chemicalsinventorymodel);
+            
+            /*
+            dynamic mymodel = new ExpandoObject();
+            mymodel.ChemicalsInventoryModel = db.ChemicalsInventory.Find(id);
+            mymodel.ChemicalsModel = db.Chemicals.Find(id);
+
+            //ChemicalsInventoryModel chemicalsinventorymodel = db.ChemicalsInventory.Find(id);
+            //ChemicalsModel chemicalsmodel = db.Chemicals.Find(id);
+
+            if (mymodel.ChemicalsInventoryModel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(mymodel);
+             */
+
+            
+            /*
+             * ChemicalNameViewModel chemicalNameViewModel = new ChemicalNameViewModel
+             * {
+             *      ChemicalsModel chemicalsmodel = db.Chemicals.Find(id);
+             *      ChemicalsInventoryModel chemicalsinventorymodel = db.ChemicalsInventory.Find(id);
+             * }
+             * if (chemicalsinventorymodel == null)
+               {
+                    return HttpNotFound();
+               }
+             * return View(chemicalNameViewModel);
+             * 
+             * 
+             * @model ChemisTrackCrud.Models.ChemicalNameViewModel
+             */
         }
+
 
         //
         // GET: /ChemicalInventory/Create
@@ -145,5 +181,7 @@ namespace ChemisTrackCrud.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public object chemicalsinventorymodel { get; set; }
     }
 }
