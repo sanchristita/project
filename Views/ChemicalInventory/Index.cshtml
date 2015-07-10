@@ -84,11 +84,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.ExpiredDate)
 
-            @if(item.ExpiredDate > DateTime.Now)
+            @if(item.ExpiredDate < DateTime.Now)
             {
-                @Html.Display("date not expired")
+                <span class="expired-notification">!</span>
             }
-
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.GRN_No)

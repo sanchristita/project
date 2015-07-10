@@ -57,3 +57,18 @@ div.header-section
 .text-center {
     text-align: center;
 }
+
+span.expired-notification
+{
+    background: red none repeat scroll 0 0;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 600;
+    height: 20px;
+    margin-left: 10px;
+    position: absolute;
+    text-align: center;
+    width: 20px;
+}
