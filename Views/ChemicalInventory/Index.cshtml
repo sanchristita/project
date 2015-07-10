@@ -22,7 +22,8 @@
 }
 
 
-<table>
+<div class="table-responsive">
+<table class="table table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Chemicals.ChemicalName)
@@ -82,6 +83,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ExpiredDate)
+
+            @if(item.ExpiredDate > DateTime.Now)
+            {
+                @Html.Display("date not expired")
+            }
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.GRN_No)
@@ -98,3 +105,4 @@
 }
 
 </table>
+</div>

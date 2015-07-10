@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using WebGrease;
 
 namespace ChemisTrackCrud.Models
 {
@@ -15,6 +16,7 @@ namespace ChemisTrackCrud.Models
         public ChemicalsModel Chemicals { get; set; }
         public int ChemicalID { get; set; }
 
+        [Required]
         [DataType(DataType.Date)]
         [Display(Name="Date of Order Received")]
         public DateTime Date { get; set; }
