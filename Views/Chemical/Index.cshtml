@@ -4,25 +4,26 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Chemical Properties</h2> 
-<h2>@Html.ActionLink("Availability", "Index", "ChemicalInventory")</h2>
+<h2 class="item-title"><span class="icon-chemical padd-right"></span>Chemical Properties</h2>
 
-<p>
-    @Html.ActionLink("Create New Chemical", "Create")
+<p class="text-right pull-right">
+    @Html.ActionLink("Add Chemical", "Create", null, new {@class="btn btn-info"})
+    @Html.ActionLink("Stocks", "Index", "ChemicalInventory", null, new {@class="btn btn-danger"})
+    @Html.ActionLink("Return to main", "Index", "Home", null, new {@class="btn btn-default"})
 </p>
 
-@using (Html.BeginForm("Index", "Chemical", FormMethod.Get))
+@using (Html.BeginForm("Index", "Chemical", FormMethod.Get, new { @class = "pull-left search-form" }))
 {
     <p>
-        Chemical Name : @Html.DropDownList("ChemicalNames","All")
-        IUPAC Name : @Html.TextBox("strSearch")
+        Chemical Name : @Html.DropDownList("ChemicalNames", "All")
+        IUPAC Name : @Html.TextBox("strSearch", null, new {@class="form-control"})
 
-        <input type="Submit" value="Search"/>
+        <input type="Submit" class="btn btn-default" value="Search"/>
     </p> 
 }
 
-<div class="table-responsive">
-    <table class="table table-striped">
+<div class="table-responsive clear-all">
+    <table class="table table-striped table-bordered">
         <tr>
             <th class="text-center">
                 @Html.DisplayNameFor(model => model.ChemicalName)
@@ -32,9 +33,6 @@
                 @Html.DisplayNameFor(model => model.ScientificName)
             </th>
 
-            <th class="text-center">
-                @Html.Label("Actions")
-            </th>
 
 
             <!--
@@ -65,6 +63,12 @@
             </th>
                 
             --> 
+            <th>
+                @Html.DisplayNameFor(model => model.stockCount)
+            </th>
+            <th class="text-center">
+                @Html.Label("Actions")
+            </th>
         </tr>
 
         @foreach (var item in Model)
@@ -106,7 +110,9 @@
                 </td>
                 
                 -->
-
+                <td>
+                    @Html.DisplayFor(modelItem => item.stockCount)
+                </td>
                 <td class="text-center">
                     @Html.ActionLink("Edit", "Edit", new { id = item.ChemicalID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.ChemicalID }) |

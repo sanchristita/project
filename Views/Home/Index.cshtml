@@ -3,9 +3,8 @@
 }
 
 <div class="actions-group">
-    @Html.ActionLink("Add Chemicals", "Index", "Chemical", null, new { @class = "main-action" })
-    @Html.ActionLink("Add Equipments", "Index", "Equipment", null, new { @class = "main-action" })
-    @Html.ActionLink("Add Students", "Index", "Student", null, new { @class = "main-action" })
-    @Html.ActionLink("Add Claims", "Index", "Claim", null, new { @class = "main-action" })
-   
+    <a href='@Url.Action("Index", "Chemical")' class="main-action chemicals"><span class="icon-chemical padd-right"></span> Add Chemicals</a>
+    <a href='@Url.Action("Index", "Equipment")' class="main-action equipments"><span class="icon-inventory padd-right"></span> Add Equipments</a>
+    <a href='@Url.Action("Index", "Student")' class="main-action students"><span class="icon-student padd-right"></span> Add Students</a>
+    <a href='@Url.Action("Index", "Claim")' class="main-action claims"><span class="icon-dollar padd-right"></span> Add Claims</a>
 </div>

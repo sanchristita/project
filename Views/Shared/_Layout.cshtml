@@ -4,14 +4,15 @@
     <title>Chemistrack</title>
     <link href="~/Public/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="~/Public/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="~/Public/css/styles.css" rel="stylesheet"/>
     <link href="~/Public/css/style.css" rel="stylesheet"/>
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <div class="header-section">
+        <div>
+            <div class="header-section container-fluid">
                 <a href=""><img src="~/Public/images/logo.png" alt="ChemisTrack" /></a>
             </div>
         </div>
@@ -25,12 +26,13 @@
 
     <footer>
         <div class="container">
-
+            Created by:- Udaya Chendrika
         </div>
     </footer>
 
 </body>
     <script src="~/Public/js/jquery-1.11.3.min.js"></script>
     <script src="~/Public/js/bootstrap.min.js"></script>
+    <script src="~/Public/js/app.js"></script>
     @RenderSection("scripts", required: false)
 </html>
