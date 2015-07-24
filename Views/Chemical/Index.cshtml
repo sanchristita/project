@@ -33,38 +33,15 @@
             </th>
 
             <th class="text-center">
+                Stock Count
+            </th>
+
+            <th class="text-center">
                 @Html.Label("Actions")
             </th>
 
 
-            <!--
-
-            <th>
-                @Html.DisplayNameFor(model => model.Nature)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Odour)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MeltingPoint)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BoilingPoint)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Flammable)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Toxicity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HazardousWaste)
-            </th>
-                
-            --> 
+            
         </tr>
 
         @foreach (var item in Model)
@@ -78,34 +55,9 @@
                     @Html.DisplayFor(modelItem => item.ScientificName)
                 </td>
 
-                <!--
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nature)
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.StockCount)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Color)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Odour)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MeltingPoint)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BoilingPoint)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Flammable)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Toxicity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HazardousWaste)
-                </td>
-                
-                -->
 
                 <td class="text-center">
                     @Html.ActionLink("Edit", "Edit", new { id = item.ChemicalID }) |

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<ChemisTrackCrud.Models.EquipmentsInventoryModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="table-responsive">
+<table class="table table-striped">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Equipments.EquipmentName)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.EquipmentOrderDate)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.EquipmentOrderNo)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.EquipmentSupplierName)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.EquipmentQuantity)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.EquipmentUnitPrice)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.EquipmentAmount)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.GRN_No)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.StockBalance)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td  class="text-center">
+            @Html.DisplayFor(modelItem => item.Equipments.EquipmentName)
+        </td>
+        <td  class="text-center">
+            @Html.DisplayFor(modelItem => item.EquipmentOrderDate)
+        </td>
+        <td  class="text-center">
+            @Html.DisplayFor(modelItem => item.EquipmentOrderNo)
+        </td>
+        <td  class="text-center">
+            @Html.DisplayFor(modelItem => item.EquipmentSupplierName)
+        </td>
+        <td  class="text-center">
+            @Html.DisplayFor(modelItem => item.EquipmentQuantity)
+        </td>
+        <td  class="text-center">
+            @Html.DisplayFor(modelItem => item.EquipmentUnitPrice)
+        </td>
+        <td  class="text-center">
+            @Html.DisplayFor(modelItem => item.EquipmentAmount)
+        </td>
+        <td  class="text-center">
+            @Html.DisplayFor(modelItem => item.GRN_No)
+        </td>
+        <td  class="text-center">
+            @Html.DisplayFor(modelItem => item.StockBalance)
+        </td>
+
+        <td class="text-center">
+            @Html.ActionLink("Edit", "Edit", new { id=item.EquipmentInventoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EquipmentInventoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EquipmentInventoryID })
+        </td>
+    </tr>
+}
+
+</table>
+
+</div>

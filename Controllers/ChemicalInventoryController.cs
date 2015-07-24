@@ -48,7 +48,6 @@ namespace ChemisTrackCrud.Controllers
 
           }
 
-
         //
         // GET: /ChemicalInventory/Details/5
 
@@ -114,6 +113,12 @@ namespace ChemisTrackCrud.Controllers
             {
                 db.ChemicalsInventory.Add(chemicalsinventorymodel);
                 db.SaveChanges();
+
+                ChemicalsModel sd = db.Chemicals.Find(chemicalsinventorymodel.ChemicalID);
+                sd.StockCount = sd.StockCount + chemicalsinventorymodel.Quantity;
+                db.Entry(sd).State = EntityState.Modified;
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

@@ -5,6 +5,7 @@
 }
 
 <h2>Equipments</h2>
+<h2>@Html.ActionLink("Availability", "Index", "EquipmentInventory")</h2>
 
 <p>
     @Html.ActionLink("Create New Equipment", "Create")
@@ -13,7 +14,7 @@
 <div class="table-responsive">
 <table class="table table-striped">
     <tr>
-        <th class="text-right">
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.EquipmentName)
         </th>
 
@@ -42,7 +43,7 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td  class="text-right">
+        <td  class="text-center">
             @Html.DisplayFor(modelItem => item.EquipmentName)
         </td>
 

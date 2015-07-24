@@ -60,28 +60,28 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.Chemicals.ChemicalName)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.Date)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.OrderNo)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.SupplierName)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.UnitPrice)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.Amount)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.ExpiredDate)
 
             @if(item.ExpiredDate < DateTime.Now)
@@ -89,13 +89,13 @@
                 <span class="expired-notification">!</span>
             }
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.GRN_No)
         </td>
-        <td>
+        <td class="text-center">
             @Html.DisplayFor(modelItem => item.StockBalance)
         </td>
-        <td>
+        <td class="text-center">
             @Html.ActionLink("Edit", "Edit", new { id=item.ChemicalsInventoryID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ChemicalsInventoryID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ChemicalsInventoryID })

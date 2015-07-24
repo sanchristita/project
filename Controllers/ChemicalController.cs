@@ -29,6 +29,9 @@ namespace ChemisTrackCrud.Controllers
             var iupac = from i in db.Chemicals
                 select i;
 
+            var iupacChem = from j in db.ChemicalsInventory.Include(c => c.Chemicals)
+                            select j;
+
             //Get list of Chemical Names
             var chemicalList = from c in iupac
                 orderby c.ChemicalName
@@ -41,7 +44,7 @@ namespace ChemisTrackCrud.Controllers
             if (!string.IsNullOrEmpty(strSearch))
                 iupac = iupac.Where(m => m.ChemicalName.Contains(strSearch));
 
-            //Search records by Publisher
+            //Search records by IUPAC name
             if (!string.IsNullOrEmpty(Chemicals))
                 iupac = iupac.Where(m => m.ChemicalName == Chemicals);
             return View(iupac);

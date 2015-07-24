@@ -14,31 +14,31 @@
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.EquipmentName, new { @class="col-sm-4 text-right"})
-            @Html.EditorFor(model => model.EquipmentName, new { @class="col-sm-6 form-control"})
+            @Html.TextBoxFor(model => model.EquipmentName, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.EquipmentName)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Model, new { @class="col-sm-4 text-right"})
-            @Html.EditorFor(model => model.Model, new { @class="col-sm-6 form-control"})
+            @Html.TextBoxFor(model => model.Model, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.Model)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Quantity, new { @class="col-sm-4 text-right"})
-            @Html.EditorFor(model => model.Quantity, new { @class="col-sm-6 form-control"})
+            @Html.TextBoxFor(model => model.Quantity, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.Quantity)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Remarks, new { @class="col-sm-4 text-right"})
-            @Html.EditorFor(model => model.Remarks, new { @class="col-sm-6 form-control"})
+            @Html.TextBoxFor(model => model.Remarks, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.Remarks)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.ClaimType, new { @class="col-sm-4 text-right"})
-            @Html.EditorFor(model => model.ClaimType)
+            @Html.TextBoxFor(model => model.ClaimType)
             @Html.ValidationMessageFor(model => model.ClaimType)
         </div>
 

@@ -1,0 +1,57 @@
+﻿@model ChemisTrackCrud.Models.EquipmentsInventoryModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+    <div class="form-group clearfix">
+         <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Equipments.EquipmentName) :</div>
+         <div class="col-sm-6"> @Html.DisplayFor(model => model.Equipments.EquipmentName)</div>
+    </div>
+
+    <div class="form-group clearfix">
+         <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.EquipmentOrderDate) :</div>
+         <div class="col-sm-6"> @Html.DisplayFor(model => model.EquipmentOrderDate)</div>
+    </div>
+
+    <div class="form-group clearfix">
+         <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.EquipmentOrderNo) :</div>
+         <div class="col-sm-6"> @Html.DisplayFor(model => model.EquipmentOrderNo)</div>
+    </div>
+
+    <div class="form-group clearfix">
+         <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.EquipmentSupplierName) :</div>
+         <div class="col-sm-6"> @Html.DisplayFor(model => model.EquipmentSupplierName)</div>
+    </div>
+
+    <div class="form-group clearfix">
+         <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.EquipmentQuantity) :</div>
+         <div class="col-sm-6"> @Html.DisplayFor(model => model.EquipmentQuantity)</div>
+    </div>
+
+    <div class="form-group clearfix">
+         <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.EquipmentUnitPrice) :</div>
+         <div class="col-sm-6"> @Html.DisplayFor(model => model.EquipmentUnitPrice)</div>
+    </div>
+
+    <div class="form-group clearfix">
+         <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.EquipmentAmount) :</div>
+         <div class="col-sm-6"> @Html.DisplayFor(model => model.EquipmentAmount)</div>
+    </div>
+
+    <div class="form-group clearfix">
+         <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.GRN_No) :</div>
+         <div class="col-sm-6"> @Html.DisplayFor(model => model.GRN_No)</div>
+    </div>
+
+    <div class="form-group clearfix">
+         <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.StockBalance) :</div>
+         <div class="col-sm-6"> @Html.DisplayFor(model => model.StockBalance)</div>
+    </div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.EquipmentInventoryID }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
+</p>

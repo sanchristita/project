@@ -9,92 +9,69 @@
 @using (Html.BeginForm("Edit","ChemicalInventory",FormMethod.Post)) {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>ChemicalsInventoryModel</legend>
-
+    
         @Html.HiddenFor(model => model.ChemicalsInventoryID)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ChemicalID, "Chemicals")
-        </div>
-        <div class="editor-field">
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.ChemicalID, "Chemicals", new { @class="col-sm-4 text-right"})
             @Html.DropDownList("ChemicalID", String.Empty)
             @Html.ValidationMessageFor(model => model.ChemicalID)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Date)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Date)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.Date, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.Date, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.Date)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.OrderNo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.OrderNo)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.OrderNo, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.OrderNo, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.OrderNo)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.SupplierName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.SupplierName)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.SupplierName, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.SupplierName, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.SupplierName)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Quantity)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Quantity)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.Quantity, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.Quantity, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.Quantity)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UnitPrice)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UnitPrice)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.UnitPrice, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.UnitPrice, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.UnitPrice)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ExpiredDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ExpiredDate)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.ExpiredDate, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.ExpiredDate, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.ExpiredDate)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.GRN_No)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.GRN_No)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.GRN_No, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.GRN_No, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.GRN_No)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.StockBalance)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.StockBalance)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.StockBalance, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.StockBalance, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.StockBalance)
         </div>
 
-        <p>
-            <input type="submit" value="Save" />
+        <p class="col-sm-10 text-center">
+            <input type="submit" value="Save"  class="btn btn-success"  />
+            @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
         </p>
-    </fieldset>
+   
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

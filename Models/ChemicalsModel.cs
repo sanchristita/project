@@ -43,5 +43,8 @@ namespace ChemisTrackCrud.Models
 
         [Display(Name="Hazardous Waste Type")]
         public string HazardousWaste { get; set; }
+
+        public decimal StockCount { get; set; }
+
     }
 }
