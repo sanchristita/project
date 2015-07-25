@@ -22,12 +22,14 @@ namespace ChemisTrackCrud.Controllers
             return View(db.Chemicals.ToList());
         }
         */
-        
-        public ViewResult Index(string Chemicals, string strSearch)
+
+        public ViewResult Index(string ChemicalNames, string strSearch)
         {
             //Select all Chemicals Names records
             var iupac = from i in db.Chemicals
                 select i;
+            var iupachem = from j in db.ChemicalsInventory.Include(c => c.Chemicals)
+                        select j;
 
             var iupacChem = from j in db.ChemicalsInventory.Include(c => c.Chemicals)
                             select j;
@@ -44,9 +46,9 @@ namespace ChemisTrackCrud.Controllers
             if (!string.IsNullOrEmpty(strSearch))
                 iupac = iupac.Where(m => m.ChemicalName.Contains(strSearch));
 
-            //Search records by IUPAC name
-            if (!string.IsNullOrEmpty(Chemicals))
-                iupac = iupac.Where(m => m.ChemicalName == Chemicals);
+            //Search records by Publisher
+            if (!string.IsNullOrEmpty(ChemicalNames))
+                iupac = iupac.Where(m => m.ChemicalName == ChemicalNames);
             return View(iupac);
 
 
