@@ -54,6 +54,7 @@ namespace ChemisTrackCrud.Controllers
         public ActionResult Details(int id = 0)
         {
             ChemicalsInventoryModel chemicalsinventorymodel = db.ChemicalsInventory.Find(id);
+            chemicalsinventorymodel.Chemicals = db.Chemicals.Find(chemicalsinventorymodel.ChemicalID);
             if (chemicalsinventorymodel == null)
             {
                 return HttpNotFound();
@@ -162,6 +163,7 @@ namespace ChemisTrackCrud.Controllers
         public ActionResult Delete(int id = 0)
         {
             ChemicalsInventoryModel chemicalsinventorymodel = db.ChemicalsInventory.Find(id);
+            chemicalsinventorymodel.Chemicals = db.Chemicals.Find(chemicalsinventorymodel.ChemicalID);
             if (chemicalsinventorymodel == null)
             {
                 return HttpNotFound();

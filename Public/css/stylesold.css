@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 
 @font-face {
   font-family: "chemistrack";
@@ -64,13 +64,4 @@
 }
 .icon-dollar:before {
   content: "i";
-}
-.icon-edit:before {
-  content: "j";
-}
-.icon-delete:before {
-  content: "k";
-}
-.icon-details:before {
-  content: "l";
 }

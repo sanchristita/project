@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ChemisTrackCrud.Models.PracticalModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PracticalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PracticalYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chemicals.ChemicalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Equipments.EquipmentName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PracticalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PracticalYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chemicals.ChemicalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Equipments.EquipmentName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PracticalID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PracticalID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PracticalID })
+        </td>
+    </tr>
+}
+
+</table>
