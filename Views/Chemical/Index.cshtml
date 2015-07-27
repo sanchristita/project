@@ -9,7 +9,7 @@
 <p class="text-right pull-right">
     @Html.ActionLink("Add Chemical", "Create", null, new {@class="btn btn-info"})
     @Html.ActionLink("Stocks", "Index", "ChemicalInventory", null, new {@class="btn btn-danger"})
-    @Html.ActionLink("Return to main", "Index", "Home", null, new {@class="btn btn-default"})
+    @Html.ActionLink("Return to Home", "Index", "Home", null, new {@class="btn btn-default"})
 </p>
 
 @using (Html.BeginForm("Index", "Chemical", FormMethod.Get, new { @class = "pull-left search-form" }))
@@ -37,7 +37,7 @@
                 Stock Count
             </th>
 
-<!--
+            <!--
             <th>
                 @Html.DisplayNameFor(model => model.Nature)
             </th>
@@ -64,9 +64,7 @@
             </th>
                 
             --> 
-            <th>
-                stock count
-            </th>
+            
             <th class="text-center">
                 @Html.Label("Actions")
             </th>
