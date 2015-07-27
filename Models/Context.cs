@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ChemisTrackCrud.Models
 {
-    public class Context:DbContext
+    public class Context : DbContext
     {
         public DbSet<ChemicalsModel> Chemicals { get; set; }
         public DbSet<EquipmentsModel> Equipments { get; set; }
@@ -16,4 +16,5 @@ namespace ChemisTrackCrud.Models
         public DbSet<EquipmentsInventoryModel> EquipmentsInventory { get; set; }
         public DbSet<PracticalModel> Practicals { get; set; }
         public DbSet<UsedListsModel> UsedLists { get; set; }
+    }
 }

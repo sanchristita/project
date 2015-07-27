@@ -54,11 +54,6 @@
          <div class="col-sm-6"> @Html.DisplayFor(model => model.GRN_No)</div>
     </div>
 
-    <div class="display-label">
-         <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.StockBalance) : </div>
-         <div class="col-sm-6"> @Html.DisplayFor(model => model.StockBalance)</div>
-    </div>
-
 @using (Html.BeginForm("Delete", "ChemicalInventory", FormMethod.Post))
 {
     <p  class="col-sm-10 text-center">
