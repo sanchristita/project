@@ -23,12 +23,12 @@
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Nature, new {@class = "col-sm-4 text-right" })
-            @Html.DropDownList("Nature",new List<SelectListItem>
+            @Html.DropDownList("Nature", new List<SelectListItem>
                                         {
                                             new SelectListItem {Text="Solid", Value="Solid"},
                                             new SelectListItem {Text="Liquid", Value="Liquid"},
                                             new SelectListItem {Text="Gas", Value="Gas"}
-                                        },"Select", new {@class = "col-sm-6 form-control" })
+                                        }, "Select", new { @class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.Nature)
         </div>
 

@@ -7,7 +7,7 @@ using WebGrease;
 
 namespace ChemisTrackCrud.Models
 {
-    public class ChemicalsInventoryModel
+    public class ChemicalsInventoryModel : IValidatableObject
     {
         [Key]
         public int ChemicalsInventoryID { get; set; }
@@ -32,6 +32,8 @@ namespace ChemisTrackCrud.Models
         [Required]
         [Display(Name = "Quantity")]
         public decimal Quantity { get; set; }
+
+        public string Unit { get; set; }
         
         [Required]
         [Display(Name = "Unit Price")]
@@ -44,6 +46,14 @@ namespace ChemisTrackCrud.Models
         [DataType(DataType.Date)]
         [Display(Name="Date of Expired")]
         public DateTime ExpiredDate { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (Date > ExpiredDate)
+            {
+                yield return new ValidationResult("ExpiredDate must be greater than Order ReceivedDate");
+            }
+        }
         
         [Display(Name="GRN No/SRN No")]
         public int GRN_No { get; set; }

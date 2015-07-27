@@ -12,6 +12,7 @@ namespace ChemisTrackCrud.Models
         public int ChemicalID { get; set; }
 
         [Required]
+        [RegularExpression("([a-zA-Z ])+", ErrorMessage="Enter only Alphabatics letters and space")]
         [Display(Name = "Chemical Name")]
         public string ChemicalName { get; set; }
 
@@ -30,10 +31,12 @@ namespace ChemisTrackCrud.Models
         public string Odour { get; set; }
 
         [Display(Name = "Melting Point")]
-        public float MeltingPoint { get; set; }
+        [RegularExpression("([0-9])+", ErrorMessage = "Enter only numbers")]
+        public string MeltingPoint { get; set; }
 
         [Display(Name = "Boiling Point")]
-        public float BoilingPoint { get; set; }
+        [RegularExpression("([0-9-])+", ErrorMessage = "Enter only numbers")]
+        public string BoilingPoint { get; set; }
 
         [Display(Name = "Flammable Type")]
         public string Flammable { get; set; }

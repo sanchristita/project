@@ -39,6 +39,16 @@
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Quantity, new { @class="col-sm-4 text-right"})
             @Html.TextBoxFor(model => model.Quantity, new { @class="col-sm-6 form-control"})
+
+            @Html.DropDownList("Unit", new List<SelectListItem> 
+                                       {
+                                           new SelectListItem {Text="L", Value="Litre"},
+                                           new SelectListItem {Text="ml", Value="MilleLitre"},
+                                           new SelectListItem {Text="g", Value="Gram"},
+                                           new SelectListItem {Text="mg", Value="MilleGram"},
+                                           new SelectListItem {Text="Kg", Value="KiloGram"}
+                                       },"Select")
+
             @Html.ValidationMessageFor(model => model.Quantity)
         </div>
 
