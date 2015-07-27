@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ChemisTrackCrud.Models.UsedListsModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<!-- Search chemicals by its Chemical Name or IUPAC Name -->
+@using (Html.BeginForm("Index", "UsedList", FormMethod.Get))
+{
+    <p>
+        Chemical Name : @Html.DropDownList("ChemicalUsedListNames","All")
+        IUPAC Name : @Html.TextBox("strSearch")
+
+        <input type="Submit" value="Search"/>
+    </p> 
+}
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UsedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PracticalNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearOfCourse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chemicals.ChemicalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsedQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChemicalStockCount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PracticalNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YearOfCourse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chemicals.ChemicalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsedQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChemicalStockCount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UsedListsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UsedListsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UsedListsID })
+        </td>
+    </tr>
+}
+
+</table>
