@@ -129,6 +129,7 @@
     <Compile Include="Controllers\EquipmentInventoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\UsedListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,6 +140,7 @@
     <Compile Include="Models\EquipmentsInventoryModel.cs" />
     <Compile Include="Models\EquipmentsModel.cs" />
     <Compile Include="Models\StudentsModel.cs" />
+    <Compile Include="Models\UsedListsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +263,11 @@
     <Content Include="Views\EquipmentInventory\Create.cshtml" />
     <Content Include="Views\EquipmentInventory\Edit.cshtml" />
     <Content Include="Views\EquipmentInventory\Delete.cshtml" />
+    <Content Include="Views\UsedList\Index.cshtml" />
+    <Content Include="Views\UsedList\Details.cshtml" />
+    <Content Include="Views\UsedList\Create.cshtml" />
+    <Content Include="Views\UsedList\Edit.cshtml" />
+    <Content Include="Views\UsedList\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -59,38 +59,6 @@ namespace ChemisTrackCrud.Controllers
                 return HttpNotFound();
             }
             return View(chemicalsinventorymodel);
-            
-            /*
-            dynamic mymodel = new ExpandoObject();
-            mymodel.ChemicalsInventoryModel = db.ChemicalsInventory.Find(id);
-            mymodel.ChemicalsModel = db.Chemicals.Find(id);
-
-            //ChemicalsInventoryModel chemicalsinventorymodel = db.ChemicalsInventory.Find(id);
-            //ChemicalsModel chemicalsmodel = db.Chemicals.Find(id);
-
-            if (mymodel.ChemicalsInventoryModel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(mymodel);
-             */
-
-            
-            /*
-             * ChemicalNameViewModel chemicalNameViewModel = new ChemicalNameViewModel
-             * {
-             *      ChemicalsModel chemicalsmodel = db.Chemicals.Find(id);
-             *      ChemicalsInventoryModel chemicalsinventorymodel = db.ChemicalsInventory.Find(id);
-             * }
-             * if (chemicalsinventorymodel == null)
-               {
-                    return HttpNotFound();
-               }
-             * return View(chemicalNameViewModel);
-             * 
-             * 
-             * @model ChemisTrackCrud.Models.ChemicalNameViewModel
-             */
         }
 
 
