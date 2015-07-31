@@ -128,6 +128,7 @@
     <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\EquipmentInventoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PracticalController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UsedListController.cs" />
     <Compile Include="Global.asax.cs">
@@ -139,6 +140,7 @@
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\EquipmentsInventoryModel.cs" />
     <Compile Include="Models\EquipmentsModel.cs" />
+    <Compile Include="Models\PracticalModel.cs" />
     <Compile Include="Models\StudentsModel.cs" />
     <Compile Include="Models\UsedListsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -199,6 +201,12 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Public\css\styles.css" />
+    <Content Include="Public\css\stylesold.css" />
+    <Content Include="Public\fonts\chemistrack.eot" />
+    <Content Include="Public\fonts\chemistrack.svg" />
+    <Content Include="Public\fonts\chemistrack.ttf" />
+    <Content Include="Public\fonts\chemistrack.woff" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Public\css\bootstrap-theme.min.css" />
     <Content Include="Public\css\bootstrap.min.css" />
@@ -268,6 +276,11 @@
     <Content Include="Views\UsedList\Create.cshtml" />
     <Content Include="Views\UsedList\Edit.cshtml" />
     <Content Include="Views\UsedList\Delete.cshtml" />
+    <Content Include="Views\Practical\Create.cshtml" />
+    <Content Include="Views\Practical\Delete.cshtml" />
+    <Content Include="Views\Practical\Details.cshtml" />
+    <Content Include="Views\Practical\Edit.cshtml" />
+    <Content Include="Views\Practical\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

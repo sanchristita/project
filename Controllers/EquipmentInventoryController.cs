@@ -16,10 +16,33 @@ namespace ChemisTrackCrud.Controllers
         //
         // GET: /EquipmentInventory/
 
+        /*
         public ActionResult Index()
         {
             var equipmentsinventory = db.EquipmentsInventory.Include(e => e.Equipments);
             return View(equipmentsinventory.ToList());
+        }
+         */
+
+        public ViewResult Index(string EquipmentInventories, string strSearch)
+        {
+            var iupac = from j in db.EquipmentsInventory.Include(e => e.Equipments)
+                        select j;
+
+            var equipmentInventoryList = from e in iupac
+                                         orderby e.Equipments.EquipmentName
+                                         select e.Equipments.EquipmentName;
+
+            ViewBag.EquipmentInventoryNames = new SelectList(equipmentInventoryList.Distinct());
+
+            if (!string.IsNullOrEmpty(strSearch))
+                iupac = iupac.Where(m => m.Equipments.EquipmentName.Contains(strSearch));
+
+            if (!string.IsNullOrEmpty(EquipmentInventories))
+                iupac = iupac.Where(m => m.Equipments.EquipmentName == EquipmentInventories);
+
+            return View(iupac);
+
         }
 
         //
@@ -98,6 +121,7 @@ namespace ChemisTrackCrud.Controllers
         public ActionResult Delete(int id = 0)
         {
             EquipmentsInventoryModel equipmentsinventorymodel = db.EquipmentsInventory.Find(id);
+            equipmentsinventorymodel.Equipments = db.Equipments.Find(equipmentsinventorymodel.EquipmentID);
             if (equipmentsinventorymodel == null)
             {
                 return HttpNotFound();

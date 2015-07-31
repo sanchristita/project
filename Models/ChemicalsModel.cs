@@ -20,6 +20,9 @@ namespace ChemisTrackCrud.Models
         [Display(Name = "IUPAC Name")]
         public string ScientificName { get; set; }
 
+        [Display(Name="Chemical Formula")]
+        public string Formula { get; set; }
+
         [Required]
         [Display(Name = "Nature")]
         public string Nature { get; set; }

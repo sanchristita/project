@@ -6,69 +6,45 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Create","UsedList",FormMethod.Post)) {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>UsedListsModel</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UsedDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UsedDate)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.UsedDate, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.UsedDate, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.UsedDate)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PracticalNo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.PracticalNo)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.PracticalNo, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.PracticalNo, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.PracticalNo)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.YearOfCourse)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.YearOfCourse)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.YearOfCourse, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.YearOfCourse, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.YearOfCourse)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ChemicalID, "Chemicals")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("ChemicalID", String.Empty)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.ChemicalID, "Chemicals", new {@class = "col-sm-4 text-right" })
+            <div class="col-sm-6 form-control">@Html.DropDownList("ChemicalID", String.Empty)</div>
             @Html.ValidationMessageFor(model => model.ChemicalID)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UsedQuantity)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UsedQuantity)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.UsedQuantity, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.UsedQuantity, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.UsedQuantity)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ChemicalStockCount)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ChemicalStockCount)
-            @Html.ValidationMessageFor(model => model.ChemicalStockCount)
-        </div>
 
-        <p>
-            <input type="submit" value="Create" />
+        <p class="col-sm-10 text-center">
+            <input type="submit" value="Create" class="btn btn-success"  />
+            @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
         </p>
-    </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

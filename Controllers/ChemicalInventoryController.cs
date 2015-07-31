@@ -27,26 +27,28 @@ namespace ChemisTrackCrud.Controllers
         }
         * */
 
+        
+
         public ViewResult Index(string ChemicalInventories, string strSearch)
         {
             var iupac = from j in db.ChemicalsInventory.Include(c => c.Chemicals)
                         select j;
 
             var chemicalInventoryList = from c in iupac
-                               orderby c.Chemicals.ChemicalName
-                               select c.Chemicals.ChemicalName;
+                                        orderby c.Chemicals.ChemicalName
+                                        select c.Chemicals.ChemicalName;
 
             ViewBag.ChemicalInventoryNames = new SelectList(chemicalInventoryList.Distinct());
-            
+
             if (!string.IsNullOrEmpty(strSearch))
                 iupac = iupac.Where(m => m.Chemicals.ChemicalName.Contains(strSearch));
 
             if (!string.IsNullOrEmpty(ChemicalInventories))
                 iupac = iupac.Where(m => m.Chemicals.ChemicalName == ChemicalInventories);
-            
+
             return View(iupac);
 
-          }
+        }
 
         //
         // GET: /ChemicalInventory/Details/5
