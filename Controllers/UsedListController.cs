@@ -75,8 +75,15 @@ namespace ChemisTrackCrud.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.UsedLists.Add(usedlistsmodel);
                 db.SaveChanges();
+
+                ChemicalsModel sd = db.Chemicals.Find(usedlistsmodel.ChemicalID);
+                sd.StockCount = sd.StockCount - usedlistsmodel.UsedQuantity;
+                db.Entry(sd).State = EntityState.Modified;
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

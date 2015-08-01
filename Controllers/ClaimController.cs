@@ -18,7 +18,8 @@ namespace ChemisTrackCrud.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Claims.ToList());
+            var claims = db.Claims.Include(c => c.equipment);
+            return View(claims.ToList());
         }
 
         //
@@ -39,6 +40,7 @@ namespace ChemisTrackCrud.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.EquipmentID = new SelectList(db.Equipments.Where(m => m.ClaimType.Equals(true)), "EquipmentID", "EquipmentName");
             return View();
         }
 
@@ -55,6 +57,7 @@ namespace ChemisTrackCrud.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.EquipmentID = new SelectList(db.Equipments.Where(m => m.ClaimType.Equals(true)), "EquipmentID", "EquipmentName", claimsmodel.EquipmentID);
             return View(claimsmodel);
         }
 
@@ -68,6 +71,7 @@ namespace ChemisTrackCrud.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.EquipmentID = new SelectList(db.Equipments.Where(m => m.ClaimType.Equals(true)), "EquipmentID", "EquipmentName", claimsmodel.EquipmentID);
             return View(claimsmodel);
         }
 
@@ -83,6 +87,7 @@ namespace ChemisTrackCrud.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.EquipmentID = new SelectList(db.Equipments.Where(m => m.ClaimType.Equals(true)), "EquipmentID", "EquipmentName", claimsmodel.EquipmentID);
             return View(claimsmodel);
         }
 

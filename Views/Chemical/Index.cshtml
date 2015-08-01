@@ -8,7 +8,7 @@
 
 <p class="text-right pull-right">
     @Html.ActionLink("Add Chemical", "Create", null, new {@class="btn btn-info"})
-    @Html.ActionLink("Stocks", "Index", "ChemicalInventory", null, new {@class="btn btn-danger"})
+    @Html.ActionLink("Stocks", "Index", "ChemicalInventory", null, new {@class="btn btn-success"})
     @Html.ActionLink("Used List", "Index", "UsedList", null, new { @class="btn btn-danger"})
     @Html.ActionLink("Return to Home", "Index", "Home", null, new {@class="btn btn-default"})
 </p>
@@ -16,8 +16,8 @@
 @using (Html.BeginForm("Index", "Chemical", FormMethod.Get, new { @class = "pull-left search-form" }))
 {
     <p>
-        Chemical Name : @Html.DropDownList("ChemicalNames", "All")
-        IUPAC Name : @Html.TextBox("strSearch", null, new {@class="form-control"})
+        Chemical Name : @Html.TextBox("nameSearch", null, new {@class="form-control"})
+        Formula : @Html.TextBox("strSearch", null, new {@class="form-control"})
 
         <input type="Submit" class="btn btn-default" value="Search"/>
     </p> 
@@ -37,34 +37,6 @@
             <th class="text-center">
                 Stock Count
             </th>
-
-            <!--
-            <th>
-                @Html.DisplayNameFor(model => model.Nature)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Odour)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MeltingPoint)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BoilingPoint)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Flammable)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Toxicity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HazardousWaste)
-            </th>
-                
-            --> 
             
             <th class="text-center">
                 @Html.Label("Actions")
@@ -75,7 +47,7 @@
         {
             <tr>
                 <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.ChemicalName)
+                    <a href="@Url.Action("Details", new { id = item.ChemicalID })">@Html.DisplayFor(modelItem => item.ChemicalName)</a>
                 </td>
 
                 <td class="text-center">
@@ -84,13 +56,16 @@
 
                 <td class="text-center">
                     @Html.DisplayFor(modelItem => item.StockCount)
+                    @if (item.StockCount <= 5)
+                    { 
+                        <span class="icon-low pull-right low-stock" data-toggle="tooltip" data-placement="top" title="Stock is Low"></span>
+                    }
                 </td>
 
-                <td class="text-center">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ChemicalID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ChemicalID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ChemicalID })
-                </td>
+                <td class="text-center icon-padd-top">
+                    <a href="@Url.Action("Edit", new { id= item.ChemicalID})" class="actions"><span class="icon-edit icon-big"></span></a>&nbsp&nbsp
+                    <a href="@Url.Action("Details", new { id = item.ChemicalID })" class="actions"><span class="icon-details icon-big"></span></a>&nbsp&nbsp
+                    <a href="@Url.Action("Delete", new { id = item.ChemicalID })" class="actions"><span class="icon-delete icon-big"></span></a>
             </tr>
         }
 

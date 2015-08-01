@@ -29,7 +29,7 @@ namespace ChemisTrackCrud.Controllers
 
         
 
-        public ViewResult Index(string ChemicalInventories, string strSearch)
+        public ViewResult Index(string ChemicalInventoryNames, string strSearch)
         {
             var iupac = from j in db.ChemicalsInventory.Include(c => c.Chemicals)
                         select j;
@@ -43,8 +43,8 @@ namespace ChemisTrackCrud.Controllers
             if (!string.IsNullOrEmpty(strSearch))
                 iupac = iupac.Where(m => m.Chemicals.ChemicalName.Contains(strSearch));
 
-            if (!string.IsNullOrEmpty(ChemicalInventories))
-                iupac = iupac.Where(m => m.Chemicals.ChemicalName == ChemicalInventories);
+            if (!string.IsNullOrEmpty(ChemicalInventoryNames))
+                iupac = iupac.Where(m => m.Chemicals.ChemicalName == ChemicalInventoryNames);
 
             return View(iupac);
 

@@ -11,17 +11,17 @@
     <legend>ClaimsModel</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.StudentID)
+         @Html.DisplayNameFor(model => model.StudentRegNo)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.StudentID)
+        @Html.DisplayFor(model => model.StudentRegNo)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.EquipmentID)
+         @Html.DisplayNameFor(model => model.equipment.EquipmentName)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.EquipmentID)
+        @Html.DisplayFor(model => model.equipment.EquipmentName)
     </div>
 
     <div class="display-label">
@@ -30,8 +30,15 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Quantity)
     </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClaimAmount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClaimAmount)
+    </div>
 </fieldset>
-@using (Html.BeginForm("Delete","Claim",FormMethod.Post)) {
+@using (Html.BeginForm()) {
     <p>
         <input type="submit" value="Delete" /> |
         @Html.ActionLink("Back to List", "Index")

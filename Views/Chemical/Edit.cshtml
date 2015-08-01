@@ -23,6 +23,12 @@
             @Html.TextBoxFor(model => model.ScientificName, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.ScientificName)
         </div>
+    
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.Formula, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.Formula, new { @class="col-sm-6 form-control"})
+            @Html.ValidationMessageFor(model => model.Formula)
+        </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Nature, new { @class="col-sm-4 text-right"})

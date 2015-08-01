@@ -5,3 +5,7 @@
 
     $('select#ChemicalNames').addClass('form-control');
 });
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})

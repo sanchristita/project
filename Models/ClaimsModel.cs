@@ -10,8 +10,17 @@ namespace ChemisTrackCrud.Models
     {
         [Key]
         public int ClaimID { get; set; }
-        public int StudentID { get; set; }
+        public int StudentRegNo { get; set; }
+
+        public EquipmentsModel equipment{ get; set; }
         public int EquipmentID { get; set; }
+
         public int Quantity { get; set; }
+
+        public decimal ClaimAmount { 
+            get {
+                return Quantity * equipment.claimStandardPrice;
+            }  
+        }
     }
 }

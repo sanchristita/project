@@ -131,6 +131,7 @@
     <Compile Include="Controllers\PracticalController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UsedListController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,6 +213,7 @@
     <Content Include="Public\css\bootstrap.min.css" />
     <Content Include="Public\css\style.css" />
     <Content Include="Public\images\Logo.png" />
+    <Content Include="Public\js\app.js" />
     <Content Include="Public\js\bootstrap.min.js" />
     <Content Include="Public\js\jquery-1.11.3.min.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -251,16 +253,6 @@
     <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
-    <Content Include="Views\Claim\Index.cshtml" />
-    <Content Include="Views\Claim\Details.cshtml" />
-    <Content Include="Views\Claim\Create.cshtml" />
-    <Content Include="Views\Claim\Edit.cshtml" />
-    <Content Include="Views\Claim\Delete.cshtml" />
-    <Content Include="Views\Equipment\Index.cshtml" />
-    <Content Include="Views\Equipment\Details.cshtml" />
-    <Content Include="Views\Equipment\Create.cshtml" />
-    <Content Include="Views\Equipment\Edit.cshtml" />
-    <Content Include="Views\Equipment\Delete.cshtml" />
     <Content Include="Views\ChemicalInventory\Index.cshtml" />
     <Content Include="Views\ChemicalInventory\Details.cshtml" />
     <Content Include="Views\ChemicalInventory\Create.cshtml" />
@@ -281,6 +273,17 @@
     <Content Include="Views\Practical\Details.cshtml" />
     <Content Include="Views\Practical\Edit.cshtml" />
     <Content Include="Views\Practical\Index.cshtml" />
+    <Content Include="Views\User\index.cshtml" />
+    <Content Include="Views\Claim\Index.cshtml" />
+    <Content Include="Views\Claim\Details.cshtml" />
+    <Content Include="Views\Claim\Create.cshtml" />
+    <Content Include="Views\Claim\Edit.cshtml" />
+    <Content Include="Views\Claim\Delete.cshtml" />
+    <Content Include="Views\Equipment\Index.cshtml" />
+    <Content Include="Views\Equipment\Details.cshtml" />
+    <Content Include="Views\Equipment\Create.cshtml" />
+    <Content Include="Views\Equipment\Edit.cshtml" />
+    <Content Include="Views\Equipment\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,9 +305,9 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>1280</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1086/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

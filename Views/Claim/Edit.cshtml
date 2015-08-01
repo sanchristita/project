@@ -6,7 +6,7 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm("Edit","Claim",FormMethod.Post)) {
+@using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
     <fieldset>
@@ -15,18 +15,18 @@
         @Html.HiddenFor(model => model.ClaimID)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.StudentID)
+            @Html.LabelFor(model => model.StudentRegNo)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.StudentID)
-            @Html.ValidationMessageFor(model => model.StudentID)
+            @Html.EditorFor(model => model.StudentRegNo)
+            @Html.ValidationMessageFor(model => model.StudentRegNo)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.EquipmentID)
+            @Html.LabelFor(model => model.EquipmentID, "equipment")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.EquipmentID)
+            @Html.DropDownList("EquipmentID", String.Empty)
             @Html.ValidationMessageFor(model => model.EquipmentID)
         </div>
 
@@ -36,6 +36,14 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Quantity)
             @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClaimAmount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClaimAmount)
+            @Html.ValidationMessageFor(model => model.ClaimAmount)
         </div>
 
         <p>

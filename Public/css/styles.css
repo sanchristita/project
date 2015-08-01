@@ -65,12 +65,24 @@
 .icon-dollar:before {
   content: "i";
 }
+
+.icon-low:before {
+  content: "m";
+}
+
 .icon-edit:before {
   content: "j";
+  color: green;
 }
 .icon-delete:before {
   content: "k";
+  color: red;
 }
 .icon-details:before {
   content: "l";
+  color: blue;
+}
+
+.icon-big{
+    font-size: 20px;
 }

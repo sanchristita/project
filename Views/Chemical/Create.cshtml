@@ -10,15 +10,21 @@
     @Html.ValidationSummary(true)
 
         <div class="form-group clearfix">
-            @Html.LabelFor(model => model.ChemicalName, new {@class = "col-sm-4 text-right" })
+            <label class="col-sm-4 text-right">Chemical Name <span class="required-sign">*</span></label>
             @Html.TextBoxFor(model => model.ChemicalName, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.ChemicalName)
         </div>
 
         <div class="form-group clearfix">
-            @Html.LabelFor(model => model.ScientificName, new {@class = "col-sm-4 text-right" })
+            <label class="col-sm-4 text-right">IUPAC Name <span class="required-sign">*</span></label>
             @Html.TextBoxFor(model => model.ScientificName, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.ScientificName)
+        </div>
+    
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.Formula, new {@class = "col-sm-4 text-right" })
+            @Html.TextBoxFor(model => model.Formula, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.Formula)
         </div>
 
         <div class="form-group clearfix">

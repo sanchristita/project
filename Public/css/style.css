@@ -67,18 +67,20 @@ footer .container{
 } 
 
     .actions-group .chemicals{
-        background: #1abc9c
+        background: #1abc9c;
     }
     .actions-group .equipments{
-        background: #96281B
+        background: #96281B;
     }
     .actions-group .students{
-        background: #674172
+        background: #674172;
     }
     .actions-group .claims{
-        background: #22313F
+        background: #22313F;
     }
-
+    .actions-group .practicals{
+        background: #d35400;
+    }
 .text-right {
     text-align: right;
 }
@@ -94,6 +96,10 @@ footer .container{
 .clear-all{
     clear: both;
     padding-top: 20px;
+}
+
+.icon-padd-top{
+    padding: 6px 0 0;
 }
 
 span.expired-notification
@@ -118,4 +124,23 @@ span.expired-notification
 .search-form .form-control{
     display: inline;
     display: inline-block;
+}
+
+td a.actions:hover, td a.actions:focus, td a.actions:active{
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.button-top-padd{
+    padding: 20px 0;
+}
+
+.low-stock{
+    color: #ee0000;
+    font-size: 20px;
+}
+
+.required-sign{
+    color:red;
+    font-size:20px;
 }
