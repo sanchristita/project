@@ -34,11 +34,11 @@ namespace ChemisTrackCrud.Models
         public string Odour { get; set; }
 
         [Display(Name = "Melting Point")]
-        [RegularExpression("([0-9])+", ErrorMessage = "Enter only numbers")]
+        [RegularExpression("([0-9-.])+", ErrorMessage = "Enter only numbers")]
         public string MeltingPoint { get; set; }
 
         [Display(Name = "Boiling Point")]
-        [RegularExpression("([0-9-])+", ErrorMessage = "Enter only numbers")]
+        [RegularExpression("([0-9-.])+", ErrorMessage = "Enter only numbers")]
         public string BoilingPoint { get; set; }
 
         [Display(Name = "Flammable Type")]

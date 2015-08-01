@@ -32,7 +32,7 @@ namespace ChemisTrackCrud.Controllers
                         select j;
 
             var iupacChem = from j in db.ChemicalsInventory.Include(c => c.Chemicals)
-                            select j;
+                           select j;
 
             //Get list of Chemical Names
             var chemicalList = from c in iupac
