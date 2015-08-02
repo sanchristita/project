@@ -1,0 +1,43 @@
+﻿@model ChemisTrackCrud.Models.BrokeListsModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>BrokeListsModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BrokeDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BrokeDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Equipments.EquipmentName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Equipments.EquipmentName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UsedQuantity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UsedQuantity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EquipmentStockCount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EquipmentStockCount)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.BrokeListsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

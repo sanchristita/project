@@ -33,7 +33,5 @@ namespace ChemisTrackCrud.Models
 
         public decimal ChemicalStockCount { get; set; }
 
-
-
     }
 }

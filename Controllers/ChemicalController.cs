@@ -16,13 +16,6 @@ namespace ChemisTrackCrud.Controllers
         //
         // GET: /Chemical/
 
-        /*
-        public ActionResult Index()
-        {
-            return View(db.Chemicals.ToList());
-        }
-        */
-
         public ViewResult Index(string nameSearch, string strSearch)
         {
             //Select all Chemicals Names records

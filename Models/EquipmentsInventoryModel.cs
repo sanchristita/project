@@ -43,10 +43,6 @@ namespace ChemisTrackCrud.Models
 
         [Display(Name = "GRN No/SRN No")]
         public int GRN_No { get; set; }
-
-        [Display(Name = "Stock Balance")]
-        public float StockBalance { get; set; }
-        
-           
+  
     }
 }

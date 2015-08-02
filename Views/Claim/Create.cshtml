@@ -4,55 +4,41 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create New Claim</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Create","Claim",FormMethod.Post)) {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>ClaimsModel</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.StudentRegNo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.StudentRegNo)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.StudentRegNo, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.StudentRegNo, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.StudentRegNo)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.EquipmentID, "equipment")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("EquipmentID", String.Empty)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.EquipmentID, "equipment", new {@class = "col-sm-4 text-right" })
+            <div class="col-sm-6 form-control">@Html.DropDownList("EquipmentID", String.Empty)</div>
             @Html.ValidationMessageFor(model => model.EquipmentID)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Quantity)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Quantity)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.Quantity, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.Quantity, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.Quantity)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ClaimAmount)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ClaimAmount)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.ClaimAmount, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.ClaimAmount, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.ClaimAmount)
         </div>
 
-        <p>
-            <input type="submit" value="Create" />
+        <p class="col-sm-10 text-center">
+            <input type="submit" value="Create" class="btn btn-success"/>
+            @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
         </p>
-    </fieldset>
+ 
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -122,12 +122,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BrokeListController.cs" />
     <Compile Include="Controllers\ChemicalController.cs" />
     <Compile Include="Controllers\ChemicalInventoryController.cs" />
     <Compile Include="Controllers\ClaimController.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\EquipmentInventoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderDefectChemicalController.cs" />
+    <Compile Include="Controllers\OrderDefectEquipmentController.cs" />
     <Compile Include="Controllers\PracticalController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UsedListController.cs" />
@@ -135,12 +138,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BrokeListsModel.cs" />
     <Compile Include="Models\ChemicalsInventoryModel.cs" />
     <Compile Include="Models\ChemicalsModel.cs" />
     <Compile Include="Models\ClaimsModel.cs" />
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\EquipmentsInventoryModel.cs" />
     <Compile Include="Models\EquipmentsModel.cs" />
+    <Compile Include="Models\OrderDefectChemicalsModel.cs" />
+    <Compile Include="Models\OrderDefectEquipmentsModel.cs" />
     <Compile Include="Models\PracticalModel.cs" />
     <Compile Include="Models\StudentsModel.cs" />
     <Compile Include="Models\UsedListsModel.cs" />
@@ -284,6 +290,21 @@
     <Content Include="Views\Equipment\Create.cshtml" />
     <Content Include="Views\Equipment\Edit.cshtml" />
     <Content Include="Views\Equipment\Delete.cshtml" />
+    <Content Include="Views\OrderDefectChemical\Index.cshtml" />
+    <Content Include="Views\OrderDefectChemical\Details.cshtml" />
+    <Content Include="Views\OrderDefectChemical\Create.cshtml" />
+    <Content Include="Views\OrderDefectChemical\Edit.cshtml" />
+    <Content Include="Views\OrderDefectChemical\Delete.cshtml" />
+    <Content Include="Views\OrderDefectEquipment\Index.cshtml" />
+    <Content Include="Views\OrderDefectEquipment\Details.cshtml" />
+    <Content Include="Views\OrderDefectEquipment\Create.cshtml" />
+    <Content Include="Views\OrderDefectEquipment\Edit.cshtml" />
+    <Content Include="Views\OrderDefectEquipment\Delete.cshtml" />
+    <Content Include="Views\BrokeList\Index.cshtml" />
+    <Content Include="Views\BrokeList\Details.cshtml" />
+    <Content Include="Views\BrokeList\Create.cshtml" />
+    <Content Include="Views\BrokeList\Edit.cshtml" />
+    <Content Include="Views\BrokeList\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

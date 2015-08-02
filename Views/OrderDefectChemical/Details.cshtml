@@ -1,0 +1,50 @@
+﻿@model ChemisTrackCrud.Models.OrderDefectChemicalsModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>OrderDefectChemicalsModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DefectDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DefectDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ChemicalName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChemicalName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DefectQuantity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DefectQuantity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DefectSupplierName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DefectSupplierName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.OrderDefectChemicalsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

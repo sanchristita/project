@@ -28,5 +28,7 @@ namespace ChemisTrackCrud.Models
         [Required]
         [Display(Name = "Standard Price for Claim")]
         public decimal claimStandardPrice { get; set; }
+
+        public decimal EquipmentStockCount { get; set; }
     }
 }

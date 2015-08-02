@@ -1,0 +1,53 @@
+﻿@model ChemisTrackCrud.Models.OrderDefectChemicalsModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>OrderDefectChemicalsModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DefectDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DefectDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ChemicalName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChemicalName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DefectQuantity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DefectQuantity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DefectSupplierName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DefectSupplierName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

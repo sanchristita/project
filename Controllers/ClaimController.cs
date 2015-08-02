@@ -16,10 +16,25 @@ namespace ChemisTrackCrud.Controllers
         //
         // GET: /Claim/
 
-        public ActionResult Index()
+        public ViewResult Index(string strSearch)
         {
-            var claims = db.Claims.Include(c => c.equipment);
-            return View(claims.ToList());
+           
+            var studentclaim = from i in db.Claims
+                        select i;
+
+            //Get list of Chemical Names
+            var studentnames = from c in studentclaim
+                               orderby c.StudentRegNo
+                               select c.StudentRegNo;
+
+            //Set distinct list of Chemicalname in ViewBag property
+            ViewBag.ChemicalNames = new SelectList(studentnames.Distinct());
+
+            //Search records by Chemical Name 
+            if (!string.IsNullOrEmpty(strSearch))
+                studentclaim = studentclaim.Where(m => m.StudentRegNo.Contains(strSearch));
+
+            return View(studentclaim);
         }
 
         //

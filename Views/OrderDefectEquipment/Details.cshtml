@@ -1,0 +1,50 @@
+﻿@model ChemisTrackCrud.Models.OrderDefectEquipmentsModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>OrderDefectEquipmentsModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EquipmenDefectDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EquipmenDefectDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EquipmentName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EquipmentName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DefectEquimentsQuantity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DefectEquimentsQuantity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DefectEquipmentSupplierName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DefectEquipmentSupplierName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.OrderDefectEquipmentsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

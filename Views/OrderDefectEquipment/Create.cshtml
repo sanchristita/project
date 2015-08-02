@@ -1,0 +1,55 @@
+﻿@model ChemisTrackCrud.Models.OrderDefectEquipmentsModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 class="item-title"><span class="icon-equipment padd-right"></span>Create New Defect Equipment</h2>
+
+@using (Html.BeginForm("Create", "ChemicalInventory", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrderNo, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.OrderNo, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.OrderNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EquipmenDefectDate, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.EquipmenDefectDate, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.EquipmenDefectDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EquipmentName, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.EquipmentName, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.EquipmentName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DefectEquimentsQuantity, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.DefectEquimentsQuantity, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.DefectEquimentsQuantity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DefectEquipmentSupplierName, new {@class = "col-sm-4 text-right" })
+            @Html.EditorFor(model => model.DefectEquipmentSupplierName, new {@class = "col-sm-6 form-control" })
+            @Html.ValidationMessageFor(model => model.DefectEquipmentSupplierName)
+        </div>
+
+         <p class="col-sm-10 text-center">
+            <input type="submit" value="Create" class="btn btn-success"/>
+            @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
+        </p>
+}   
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

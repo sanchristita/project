@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ChemisTrackCrud.Models.OrderDefectEquipmentsModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="item-title"><span class="icon-inventory padd-right"></span>Defect Equipment Stock</h2>
+
+<p class="text-right pull-right">
+    @Html.ActionLink("Add Defect", "Create", null, new {@class="btn btn-info"})
+    @Html.ActionLink("Return to Euipments Stock", "Index", "EuipmentInventory", null, new {@class="btn btn-warning"})
+    @Html.ActionLink("Return to Euipments", "Index", "Euipment", null, new {@class="btn btn-success"})
+    @Html.ActionLink("Return to Home", "Index", "Home", null, new {@class="btn btn-default"})
+</p>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmenDefectDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DefectEquimentsQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DefectEquipmentSupplierName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmenDefectDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DefectEquimentsQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DefectEquipmentSupplierName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderDefectEquipmentsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderDefectEquipmentsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderDefectEquipmentsID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -7,7 +7,8 @@
 <h2 class="item-title"><span class="icon-chemical padd-right"></span>Chemical Stock</h2>
 
 <p class="text-right pull-right">
-    @Html.ActionLink("Create New Chemical", "Create", null, new {@class="btn btn-info"})
+    @Html.ActionLink("Create New Stock", "Create", null, new {@class="btn btn-info"})
+    @Html.ActionLink("Defects", "Index", "OrderDefectChemical", null, new {@class="btn btn-warning"})
     @Html.ActionLink("Return to Chemicals", "Index", "Chemical", null, new {@class="btn btn-success"})
     @Html.ActionLink("Return to Home", "Index", "Home", null, new {@class="btn btn-default"})
 </p>
@@ -55,7 +56,9 @@
         <th class="text-center">
             @Html.DisplayNameFor(model => model.GRN_No)
         </th>
-        <th></th>
+       <th class="text-center">
+            @Html.Label("Actions")
+       </th>
     </tr>
 
 @foreach (var item in Model)

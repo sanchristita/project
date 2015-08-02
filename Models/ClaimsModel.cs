@@ -10,7 +10,7 @@ namespace ChemisTrackCrud.Models
     {
         [Key]
         public int ClaimID { get; set; }
-        public int StudentRegNo { get; set; }
+        public string StudentRegNo { get; set; }
 
         public EquipmentsModel equipment{ get; set; }
         public int EquipmentID { get; set; }
