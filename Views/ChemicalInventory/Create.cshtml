@@ -11,31 +11,31 @@
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.ChemicalID, "Chemicals", new {@class = "col-sm-4 text-right" })
-            <div class="col-sm-6 form-control">@Html.DropDownList("ChemicalID", string.Empty)</div>
+            @Html.DropDownList("ChemicalID", (IEnumerable<SelectListItem>)ViewBag.ChemicalID, new { @class= "col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.ChemicalID)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Date, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.Date, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.Date, null, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.Date)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.OrderNo, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.OrderNo, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.OrderNo, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.OrderNo)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.SupplierName, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.SupplierName, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.SupplierName, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.SupplierName)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Quantity, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.Quantity, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.Quantity, new {@class = "col-sm-4 form-control" })
             
             @Html.DropDownList("Unit", new List<SelectListItem> 
                                        {
@@ -44,26 +44,26 @@
                                            new SelectListItem {Text="g", Value="Gram"},
                                            new SelectListItem {Text="mg", Value="MilleGram"},
                                            new SelectListItem {Text="Kg", Value="KiloGram"}
-                                       },"Select")
+                                       },"Select", new {@class = "col-sm-2 form-control" })
 
             @Html.ValidationMessageFor(model => model.Quantity)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.UnitPrice, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.UnitPrice, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.UnitPrice, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.UnitPrice)
         </div>
     
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.ExpiredDate, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.ExpiredDate, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.ExpiredDate, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.ExpiredDate)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.GRN_No, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.GRN_No, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.GRN_No, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.GRN_No)
         </div>
 
