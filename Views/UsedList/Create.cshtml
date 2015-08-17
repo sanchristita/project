@@ -11,19 +11,19 @@
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.UsedDate, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.UsedDate, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.UsedDate, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.UsedDate)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.PracticalNo, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.PracticalNo, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.PracticalNo, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.PracticalNo)
         </div>
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.YearOfCourse, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.YearOfCourse, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.YearOfCourse, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.YearOfCourse)
         </div>
 
@@ -35,7 +35,7 @@
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.UsedQuantity, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.UsedQuantity, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.UsedQuantity, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.UsedQuantity)
         </div>
 

@@ -18,7 +18,8 @@ namespace ChemisTrackCrud.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Practicals.ToList());
+            var practicals = db.Practicals.Include(p => p.Equipments);
+            return View(practicals.ToList());
         }
 
         //
@@ -39,6 +40,7 @@ namespace ChemisTrackCrud.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.EquipmentID = new SelectList(db.Equipments, "EquipmentID", "EquipmentName");
             return View();
         }
 
@@ -55,6 +57,7 @@ namespace ChemisTrackCrud.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.EquipmentID = new SelectList(db.Equipments, "EquipmentID", "EquipmentName", practicalmodel.EquipmentID);
             return View(practicalmodel);
         }
 
@@ -68,6 +71,7 @@ namespace ChemisTrackCrud.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.EquipmentID = new SelectList(db.Equipments, "EquipmentID", "EquipmentName", practicalmodel.EquipmentID);
             return View(practicalmodel);
         }
 
@@ -83,6 +87,7 @@ namespace ChemisTrackCrud.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.EquipmentID = new SelectList(db.Equipments, "EquipmentID", "EquipmentName", practicalmodel.EquipmentID);
             return View(practicalmodel);
         }
 

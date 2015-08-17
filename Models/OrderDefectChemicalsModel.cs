@@ -12,7 +12,6 @@ namespace ChemisTrackCrud.Models
         public int OrderDefectChemicalsID { get; set; }
 
         [Required]
-        public ChemicalsInventoryModel chemicalsInventory { get; set; }
         public string OrderNo { get; set; }
 
         [Required]
@@ -21,7 +20,7 @@ namespace ChemisTrackCrud.Models
         public DateTime DefectDate { get; set; }
 
         public ChemicalsModel chemicals {get; set;}
-        public string ChemicalName { get; set; }
+        public int ChemicalID { get; set; }
 
         [Required]
         [Display(Name = "Quantity")]

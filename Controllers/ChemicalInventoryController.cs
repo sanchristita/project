@@ -57,6 +57,7 @@ namespace ChemisTrackCrud.Controllers
         {
             ChemicalsInventoryModel chemicalsinventorymodel = db.ChemicalsInventory.Find(id);
             chemicalsinventorymodel.Chemicals = db.Chemicals.Find(chemicalsinventorymodel.ChemicalID);
+
             if (chemicalsinventorymodel == null)
             {
                 return HttpNotFound();

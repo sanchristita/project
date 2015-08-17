@@ -4,65 +4,50 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2 class="item-title"><span class="icon-chemical padd-right"></span>Edit Defect Chemical </h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Edit","OrderDefectChemical",FormMethod.Post)) {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>OrderDefectChemicalsModel</legend>
 
         @Html.HiddenFor(model => model.OrderDefectChemicalsID)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.OrderNo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.OrderNo)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.OrderNo, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.OrderNo, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.OrderNo)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DefectDate)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DefectDate)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.DefectDate, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.DefectDate, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.DefectDate)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ChemicalName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ChemicalName)
-            @Html.ValidationMessageFor(model => model.ChemicalName)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.ChemicalID, "chemicals", new { @class="col-sm-4 text-right"})
+            <div class="col-sm-6 form-control">@Html.DropDownList("ChemicalID", String.Empty)</div>
+            @Html.ValidationMessageFor(model => model.ChemicalID)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DefectQuantity)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DefectQuantity)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.DefectQuantity, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.DefectQuantity, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.DefectQuantity)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DefectSupplierName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DefectSupplierName)
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.DefectSupplierName, new { @class="col-sm-4 text-right"})
+            @Html.TextBoxFor(model => model.DefectSupplierName, new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.DefectSupplierName)
         </div>
 
-        <p>
-            <input type="submit" value="Save" />
+        <p class="col-sm-10 text-center">
+            <input type="submit" value="Save"   class="btn btn-success"  />
+            @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
         </p>
-    </fieldset>
+ 
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

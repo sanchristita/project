@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="item-title"><span class="icon-chemical padd-right"></span>Chemical Stock Details</h2>
 
     <div class="form-group clearfix">
          <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Chemicals.ChemicalName) :</div>
@@ -28,8 +28,8 @@
 
     <div class="form-group clearfix">
          <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Quantity) :</div>
-         <div class="col-sm-6"> @Html.DisplayFor(model => model.Quantity)</div>
-         <div>@Html.DisplayFor(model => model.Unit)</div>
+         <div class="col-sm-1"> @Html.DisplayFor(model => model.Quantity)</div>
+         <div class="col-sm-4">@Html.DisplayFor(model => model.Unit)</div>
     </div>
 
     <div class="form-group clearfix">

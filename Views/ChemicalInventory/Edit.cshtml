@@ -4,7 +4,8 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2 class="item-title"><span class="icon-chemical padd-right"></span>Edit Chemical Stock</h2>
+
 
 @using (Html.BeginForm("Edit","ChemicalInventory",FormMethod.Post)) {
     @Html.ValidationSummary(true)
@@ -14,7 +15,7 @@
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.ChemicalID, "Chemicals", new { @class="col-sm-4 text-right"})
-            @Html.DropDownList("ChemicalID", String.Empty)
+            <div class="col-sm-6 form-control">@Html.DropDownList("ChemicalID", String.Empty)</div>
             @Html.ValidationMessageFor(model => model.ChemicalID)
         </div>
 
@@ -38,7 +39,7 @@
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Quantity, new { @class="col-sm-4 text-right"})
-            @Html.TextBoxFor(model => model.Quantity, new { @class="col-sm-6 form-control"})
+            @Html.TextBoxFor(model => model.Quantity, new { @class="col-sm-4 form-control"})
 
             @Html.DropDownList("Unit", new List<SelectListItem> 
                                        {
@@ -47,7 +48,7 @@
                                            new SelectListItem {Text="g", Value="Gram"},
                                            new SelectListItem {Text="mg", Value="MilleGram"},
                                            new SelectListItem {Text="Kg", Value="KiloGram"}
-                                       },"Select")
+                                       },"Select", new {@class = "col-sm-2 form-control" })
 
             @Html.ValidationMessageFor(model => model.Quantity)
         </div>

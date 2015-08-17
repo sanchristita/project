@@ -25,20 +25,16 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Chemicals.ChemicalName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Chemicals.ChemicalName)
-    </div>
-
-    <div class="display-label">
          @Html.DisplayNameFor(model => model.Equipments.EquipmentName)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Equipments.EquipmentName)
     </div>
 </fieldset>
-@using (Html.BeginForm()) {
+
+
+@using (Html.BeginForm("Delete", "Practical", FormMethod.Post))
+{
     <p>
         <input type="submit" value="Delete" /> |
         @Html.ActionLink("Back to List", "Index")

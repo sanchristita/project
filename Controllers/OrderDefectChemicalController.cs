@@ -18,7 +18,8 @@ namespace ChemisTrackCrud.Controllers
 
         public ActionResult Index()
         {
-            return View(db.OrderDefectChemicals.ToList());
+            var orderdefectchemicals = db.OrderDefectChemicals.Include(o => o.chemicals);
+            return View(orderdefectchemicals.ToList());
         }
 
         //
@@ -27,6 +28,8 @@ namespace ChemisTrackCrud.Controllers
         public ActionResult Details(int id = 0)
         {
             OrderDefectChemicalsModel orderdefectchemicalsmodel = db.OrderDefectChemicals.Find(id);
+            orderdefectchemicalsmodel.chemicals = db.Chemicals.Find(orderdefectchemicalsmodel.ChemicalID);
+
             if (orderdefectchemicalsmodel == null)
             {
                 return HttpNotFound();
@@ -39,6 +42,7 @@ namespace ChemisTrackCrud.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.ChemicalID = new SelectList(db.Chemicals, "ChemicalID", "ChemicalName");
             return View();
         }
 
@@ -55,6 +59,7 @@ namespace ChemisTrackCrud.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ChemicalID = new SelectList(db.Chemicals, "ChemicalID", "ChemicalName", orderdefectchemicalsmodel.ChemicalID);
             return View(orderdefectchemicalsmodel);
         }
 
@@ -68,6 +73,7 @@ namespace ChemisTrackCrud.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ChemicalID = new SelectList(db.Chemicals, "ChemicalID", "ChemicalName", orderdefectchemicalsmodel.ChemicalID);
             return View(orderdefectchemicalsmodel);
         }
 
@@ -83,6 +89,7 @@ namespace ChemisTrackCrud.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ChemicalID = new SelectList(db.Chemicals, "ChemicalID", "ChemicalName", orderdefectchemicalsmodel.ChemicalID);
             return View(orderdefectchemicalsmodel);
         }
 

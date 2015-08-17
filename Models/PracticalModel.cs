@@ -17,7 +17,7 @@ namespace ChemisTrackCrud.Models
         public int PracticalYear { get; set; }
 
         public ChemicalsModel Chemicals { get; set; }
-        public int ChemicalID { get; set; }
+        public List<ChemicalsModel> ChemicalID { get; set; }
 
         public EquipmentsModel Equipments { get; set; }
         public int EquipmentID { get; set; }

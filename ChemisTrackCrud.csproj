@@ -274,11 +274,6 @@
     <Content Include="Views\UsedList\Create.cshtml" />
     <Content Include="Views\UsedList\Edit.cshtml" />
     <Content Include="Views\UsedList\Delete.cshtml" />
-    <Content Include="Views\Practical\Create.cshtml" />
-    <Content Include="Views\Practical\Delete.cshtml" />
-    <Content Include="Views\Practical\Details.cshtml" />
-    <Content Include="Views\Practical\Edit.cshtml" />
-    <Content Include="Views\Practical\Index.cshtml" />
     <Content Include="Views\User\index.cshtml" />
     <Content Include="Views\Claim\Index.cshtml" />
     <Content Include="Views\Claim\Details.cshtml" />
@@ -290,11 +285,6 @@
     <Content Include="Views\Equipment\Create.cshtml" />
     <Content Include="Views\Equipment\Edit.cshtml" />
     <Content Include="Views\Equipment\Delete.cshtml" />
-    <Content Include="Views\OrderDefectChemical\Index.cshtml" />
-    <Content Include="Views\OrderDefectChemical\Details.cshtml" />
-    <Content Include="Views\OrderDefectChemical\Create.cshtml" />
-    <Content Include="Views\OrderDefectChemical\Edit.cshtml" />
-    <Content Include="Views\OrderDefectChemical\Delete.cshtml" />
     <Content Include="Views\OrderDefectEquipment\Index.cshtml" />
     <Content Include="Views\OrderDefectEquipment\Details.cshtml" />
     <Content Include="Views\OrderDefectEquipment\Create.cshtml" />
@@ -305,6 +295,16 @@
     <Content Include="Views\BrokeList\Create.cshtml" />
     <Content Include="Views\BrokeList\Edit.cshtml" />
     <Content Include="Views\BrokeList\Delete.cshtml" />
+    <Content Include="Views\OrderDefectChemical\Index.cshtml" />
+    <Content Include="Views\OrderDefectChemical\Details.cshtml" />
+    <Content Include="Views\OrderDefectChemical\Create.cshtml" />
+    <Content Include="Views\OrderDefectChemical\Edit.cshtml" />
+    <Content Include="Views\OrderDefectChemical\Delete.cshtml" />
+    <Content Include="Views\Practical\Index.cshtml" />
+    <Content Include="Views\Practical\Details.cshtml" />
+    <Content Include="Views\Practical\Create.cshtml" />
+    <Content Include="Views\Practical\Edit.cshtml" />
+    <Content Include="Views\Practical\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

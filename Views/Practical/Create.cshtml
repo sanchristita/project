@@ -6,29 +6,32 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm() {
+@using (Html.BeginForm("Create","Practical",FormMethod.Post)) {
     @Html.ValidationSummary(true)
 
-        <div class="form-group clearfix">
-            @Html.LabelFor(model => model.PracticalName, new {@class = "col-sm-4 text-right" })
+    <fieldset>
+        <legend>PracticalModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PracticalName)
+        </div>
+        <div class="editor-field">
             @Html.EditorFor(model => model.PracticalName)
             @Html.ValidationMessageFor(model => model.PracticalName)
         </div>
 
-        <div class="form-group clearfix">
-            @Html.LabelFor(model => model.PracticalYear, new {@class = "col-sm-4 text-right" })
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PracticalYear)
+        </div>
+        <div class="editor-field">
             @Html.EditorFor(model => model.PracticalYear)
             @Html.ValidationMessageFor(model => model.PracticalYear)
         </div>
 
-        <div class="form-group clearfix">
-            @Html.LabelFor(model => model.ChemicalID, "Chemicals", new {@class = "col-sm-4 text-right" })
-            @Html.DropDownList("ChemicalID", String.Empty)
-            @Html.ValidationMessageFor(model => model.ChemicalID)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EquipmentID, "Equipments")
         </div>
-
-        <div class="form-group clearfix">
-            @Html.LabelFor(model => model.EquipmentID, "Equipments", new {@class = "col-sm-4 text-right" })
+        <div class="editor-field">
             @Html.DropDownList("EquipmentID", String.Empty)
             @Html.ValidationMessageFor(model => model.EquipmentID)
         </div>
@@ -36,7 +39,7 @@
         <p>
             <input type="submit" value="Create" />
         </p>
-    
+    </fieldset>
 }
 
 <div>

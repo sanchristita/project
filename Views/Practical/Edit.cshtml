@@ -6,7 +6,8 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Edit", "Practical", FormMethod.Post))
+{
     @Html.ValidationSummary(true)
 
     <fieldset>
@@ -28,14 +29,6 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.PracticalYear)
             @Html.ValidationMessageFor(model => model.PracticalYear)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ChemicalID, "Chemicals")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("ChemicalID", String.Empty)
-            @Html.ValidationMessageFor(model => model.ChemicalID)
         </div>
 
         <div class="editor-label">

@@ -4,47 +4,35 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="item-title"><span class="icon-chemical padd-right"></span>Defect Chemical Details</h2>
 
-<fieldset>
-    <legend>OrderDefectChemicalsModel</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.OrderNo)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.OrderNo)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.OrderNo) :</div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.OrderNo)</div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DefectDate)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DefectDate)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.DefectDate) :</div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.DefectDate)</div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.ChemicalName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ChemicalName)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.chemicals.ChemicalName) :</div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.chemicals.ChemicalName)</div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DefectQuantity)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DefectQuantity)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.DefectQuantity) :</div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.DefectQuantity)</div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.DefectSupplierName)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.DefectSupplierName) :</div>
+        <div class="col-sm-6"> @Html.DisplayFor(model => model.DefectSupplierName)</div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DefectSupplierName)
-    </div>
-</fieldset>
-<p>
+
+<p class="col-sm-10 text-center">
     @Html.ActionLink("Edit", "Edit", new { id=Model.OrderDefectChemicalsID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
 </p>
