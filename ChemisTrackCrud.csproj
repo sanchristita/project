@@ -131,7 +131,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderDefectChemicalController.cs" />
     <Compile Include="Controllers\OrderDefectEquipmentController.cs" />
-    <Compile Include="Controllers\PracticalController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UsedListController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -300,11 +299,6 @@
     <Content Include="Views\OrderDefectChemical\Create.cshtml" />
     <Content Include="Views\OrderDefectChemical\Edit.cshtml" />
     <Content Include="Views\OrderDefectChemical\Delete.cshtml" />
-    <Content Include="Views\Practical\Index.cshtml" />
-    <Content Include="Views\Practical\Details.cshtml" />
-    <Content Include="Views\Practical\Create.cshtml" />
-    <Content Include="Views\Practical\Edit.cshtml" />
-    <Content Include="Views\Practical\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

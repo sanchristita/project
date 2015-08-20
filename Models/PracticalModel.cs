@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ChemisTrackCrud.Models
 {
@@ -17,7 +18,8 @@ namespace ChemisTrackCrud.Models
         public int PracticalYear { get; set; }
 
         public ChemicalsModel Chemicals { get; set; }
-        public List<ChemicalsModel> ChemicalID { get; set; }
+        public int[] ChemicalID { get; set; }
+        public MultiSelectList MultiChemicals { get; set; }
 
         public EquipmentsModel Equipments { get; set; }
         public int EquipmentID { get; set; }
