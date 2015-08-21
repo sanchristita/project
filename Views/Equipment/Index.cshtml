@@ -38,6 +38,12 @@
             @Html.DisplayNameFor(model => model.ClaimType)
         </th>
         <th class="text-center">
+            Claim Amount
+        </th>
+        <th class="text-center">
+            Stock Count
+        </th>
+        <th class="text-center">
                 @Html.Label("Actions")
         </th>
         
@@ -57,14 +63,17 @@
         <td class="text-center">
             @Html.DisplayFor(modelItem => item.ClaimType)
         </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.claimStandardPrice)
+        </td>
 
         <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.EquipmentStockCount)
-                    @if (item.EquipmentStockCount <= 5)
-                    { 
-                        <span class="icon-low pull-right low-stock" data-toggle="tooltip" data-placement="top" title="Stock is Low"></span>
-                    }
-                </td>
+           @Html.DisplayFor(modelItem => item.EquipmentStockCount)
+           @if (item.EquipmentStockCount <= 5)
+           { 
+             <span class="icon-low pull-right low-stock" data-toggle="tooltip" data-placement="top" title="Stock is Low"></span>
+           }
+        </td>                  
 
         <td class="text-center icon-padd-top">
             <a href="@Url.Action("Edit", new { id=item.EquipmentID })" class="actions"><span class="icon-edit icon-big"></span></a>&nbsp&nbsp 

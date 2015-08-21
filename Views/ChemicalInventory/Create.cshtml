@@ -11,7 +11,7 @@
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.ChemicalID, "Chemicals", new {@class = "col-sm-4 text-right" })
-            <div class="col-sm-6 form-control">@Html.DropDownList("ChemicalID", string.Empty)</div>
+            @Html.DropDownList("ChemicalID", (IEnumerable<SelectListItem>)ViewBag.ChemicalID, new { @class= "col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.ChemicalID)
         </div>
 
@@ -45,7 +45,6 @@
                                            new SelectListItem {Text="mg", Value="mg"},
                                            new SelectListItem {Text="Kg", Value="Kg"}
                                        },"Select", new {@class = "col-sm-2 form-control" })
-
             @Html.ValidationMessageFor(model => model.Quantity)
         </div>
 
