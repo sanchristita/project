@@ -22,7 +22,8 @@ namespace ChemisTrackCrud.Models
 
         public DbSet<ClaimsModel> Claims { get; set; }
         
-        public DbSet<PracticalModel> Practicals { get; set; }
+        public DbSet<PracticalsModel> Practicals { get; set; }
         
     }
 }
+

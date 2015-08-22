@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace ChemisTrackCrud.Models
 {
-    public class PracticalModel
+    public class PracticalsModel
     {
         [Key]
         public int PracticalID { get; set; }
@@ -17,12 +15,10 @@ namespace ChemisTrackCrud.Models
 
         public int PracticalYear { get; set; }
 
-        public ChemicalsModel Chemicals { get; set; }
-        public int[] ChemicalID { get; set; }
-        public MultiSelectList MultiChemicals { get; set; }
+        public ChemicalsModel AvailableChemicls { get; set; }
+        public int ChemicalID { get; set; }
 
-        public EquipmentsModel Equipments { get; set; }
+        public EquipmentsModel AvailableEquipments { get; set; }
         public int EquipmentID { get; set; }
-
     }
 }

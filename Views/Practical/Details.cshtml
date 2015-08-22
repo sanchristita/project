@@ -1,0 +1,43 @@
+﻿@model ChemisTrackCrud.Models.PracticalsModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PracticalsModel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PracticalName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PracticalName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PracticalYear)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PracticalYear)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AvailableChemicls.ChemicalName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AvailableChemicls.ChemicalName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AvailableEquipments.EquipmentName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AvailableEquipments.EquipmentName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PracticalID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
