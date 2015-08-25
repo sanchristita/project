@@ -145,6 +145,7 @@
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\EquipmentsInventoryModel.cs" />
     <Compile Include="Models\EquipmentsModel.cs" />
+    <Compile Include="Models\LogInsModel.cs" />
     <Compile Include="Models\OrderDefectChemicalsModel.cs" />
     <Compile Include="Models\OrderDefectEquipmentsModel.cs" />
     <Compile Include="Models\PracticalsModel.cs" />

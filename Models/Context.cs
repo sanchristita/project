@@ -8,6 +8,8 @@ namespace ChemisTrackCrud.Models
 {
     public class Context : DbContext
     {
+        public DbSet<LogInsModel> LogIns { get; set; }
+
         public DbSet<ChemicalsModel> Chemicals { get; set; }
         public DbSet<ChemicalsInventoryModel> ChemicalsInventory { get; set; }
         public DbSet<UsedListsModel> UsedLists { get; set; }
