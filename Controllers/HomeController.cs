@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ChemisTrackCrud.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         //

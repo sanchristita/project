@@ -2,19 +2,26 @@
 <html>
 <head>
     <title>Chemistrack</title>
+    <script src="~/Public/js/jquery-1.11.3.min.js"></script>
+    <script src="~/Public/js/print.js"></script>
     <link href="~/Public/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="~/Public/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="~/Public/css/datepicker.css" rel="stylesheet"/>
     <link href="~/Public/css/styles.css" rel="stylesheet"/>
     <link href="~/Public/css/style.css" rel="stylesheet"/>
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-
     <header>
-        <div>
-            <div class="header-section container-fluid">
-                <a href=""><img src="~/Public/images/logo.png" alt="ChemisTrack" /></a>
+        <div class="header-section container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img src="~/Public/images/logo.png" alt="ChemisTrack" /></a>
             </div>
+            @if (Request.IsAuthenticated) { 
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("LogOut", "Account")"><h4>log out</h4></a></li>
+                </ul>
+            }
         </div>
     </header>
 
@@ -30,8 +37,8 @@
     </footer>
 
 </body>
-    <script src="~/Public/js/jquery-1.11.3.min.js"></script>
     <script src="~/Public/js/bootstrap.min.js"></script>
+    <script src="~/Public/js/bootstrap-datepicker.js"></script>
     <script src="~/Public/js/app.js"></script>
     @RenderSection("scripts", required: false)
 </html>

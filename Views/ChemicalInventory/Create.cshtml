@@ -17,7 +17,7 @@
 
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Date, new {@class = "col-sm-4 text-right" })
-            @Html.TextBoxFor(model => model.Date, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.Date, new {@class = "col-sm-6 form-control datepicker" })
             @Html.ValidationMessageFor(model => model.Date)
         </div>
 
@@ -56,7 +56,7 @@
     
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.ExpiredDate, new {@class = "col-sm-4 text-right" })
-            @Html.TextBoxFor(model => model.ExpiredDate, new {@class = "col-sm-6 form-control" })
+            @Html.TextBoxFor(model => model.ExpiredDate, new {@class = "col-sm-6 form-control datepicker" })
             @Html.ValidationMessageFor(model => model.ExpiredDate)
         </div>
 

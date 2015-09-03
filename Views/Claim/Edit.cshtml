@@ -15,11 +15,11 @@
         @Html.HiddenFor(model => model.ClaimID)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.StudentRegNo)
+            @Html.LabelFor(model => model.RegistrationNumber)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.StudentRegNo)
-            @Html.ValidationMessageFor(model => model.StudentRegNo)
+            @Html.EditorFor(model => model.RegistrationNumber)
+            @Html.ValidationMessageFor(model => model.RegistrationNumber)
         </div>
 
         <div class="editor-label">
@@ -36,14 +36,6 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Quantity)
             @Html.ValidationMessageFor(model => model.Quantity)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ClaimAmount)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ClaimAmount)
-            @Html.ValidationMessageFor(model => model.ClaimAmount)
         </div>
 
         <p>

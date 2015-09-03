@@ -1,0 +1,72 @@
+﻿@model ChemisTrackCrud.Models.WasteManagementModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="item-title"><span class="icon-radioactive padd-right icon-big"></span>Waste Chemical Details</h2>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.ChemicalID) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.ChemicalID)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.ChemicalName) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.ChemicalName)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.HazardousWaste) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.HazardousWaste)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Date) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Date)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.OrderNo) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.OrderNo)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.SupplierName) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.SupplierName)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Quantity) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Quantity)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Unit) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Unit)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.UnitPrice) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.UnitPrice)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Amount) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Amount)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.ExpiredDate) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.ExpiredDate)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.GRN_No) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.GRN_No)</div>
+    </div>
+
+<p class="col-sm-10 text-center">
+    @Html.ActionLink("Edit", "Edit", new { id=Model.WasteManagementID }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
+</p>

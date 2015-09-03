@@ -81,6 +81,9 @@ footer .container{
     .actions-group .practicals{
         background: #d35400;
     }
+    .actions-group .waste-management{
+        background: #14a31b;
+    }
 .text-right {
     text-align: right;
 }
@@ -100,6 +103,10 @@ footer .container{
 
 .icon-padd-top{
     padding: 6px 0 0;
+}
+
+.red {
+    color: red;
 }
 
 span.expired-notification
@@ -143,4 +150,11 @@ td a.actions:hover, td a.actions:focus, td a.actions:active{
 .required-sign{
     color:red;
     font-size:20px;
+}
+
+/*styles for user login*/
+
+.form-login {
+    width: 260px;
+    margin: auto;
 }

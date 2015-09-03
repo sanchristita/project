@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Manage";
+}
+
+<h2 class="item-title"><span class="icon-radioactive red icon-big"></span>Manage Waste Chemical Inventory </h2>
+
+<h3>Are you sure you want to move this item for waste management?</h3>
+
+@using (Html.BeginForm("Manage", "WasteManagement", FormMethod.Post))
+{
+    <p  class="col-sm-10 text-center">
+        <input type="submit" class="btn btn-default" value="Move to Waste Management" , new { id=Model.ChemicalID} />
+        @Html.ActionLink("No", "Index", "ChemicalInventory", null, new { @class = "btn btn-default" })
+    </p>
+}

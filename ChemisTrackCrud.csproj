@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SimpleCrypto">
+      <HintPath>..\packages\SimpleCrypto.0.3.30.26\lib\SimpleCrypto.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -122,6 +125,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BrokeListController.cs" />
     <Compile Include="Controllers\ChemicalController.cs" />
     <Compile Include="Controllers\ChemicalInventoryController.cs" />
@@ -135,9 +139,11 @@
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UsedListController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\WasteManagementController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\BrokeListsModel.cs" />
     <Compile Include="Models\ChemicalsInventoryModel.cs" />
     <Compile Include="Models\ChemicalsModel.cs" />
@@ -145,12 +151,12 @@
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\EquipmentsInventoryModel.cs" />
     <Compile Include="Models\EquipmentsModel.cs" />
-    <Compile Include="Models\LogInsModel.cs" />
     <Compile Include="Models\OrderDefectChemicalsModel.cs" />
     <Compile Include="Models\OrderDefectEquipmentsModel.cs" />
     <Compile Include="Models\PracticalsModel.cs" />
     <Compile Include="Models\StudentsModel.cs" />
     <Compile Include="Models\UsedListsModel.cs" />
+    <Compile Include="Models\WasteManagementModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -209,6 +215,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Public\css\datepicker.css" />
     <Content Include="Public\css\styles.css" />
     <Content Include="Public\css\stylesold.css" />
     <Content Include="Public\fonts\chemistrack.eot" />
@@ -221,8 +228,10 @@
     <Content Include="Public\css\style.css" />
     <Content Include="Public\images\Logo.png" />
     <Content Include="Public\js\app.js" />
+    <Content Include="Public\js\bootstrap-datepicker.js" />
     <Content Include="Public\js\bootstrap.min.js" />
     <Content Include="Public\js\jquery-1.11.3.min.js" />
+    <Content Include="Public\js\print.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -255,11 +264,6 @@
     <Content Include="Views\Chemical\Edit.cshtml" />
     <Content Include="Views\Chemical\Delete.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Student\Index.cshtml" />
-    <Content Include="Views\Student\Details.cshtml" />
-    <Content Include="Views\Student\Create.cshtml" />
-    <Content Include="Views\Student\Edit.cshtml" />
-    <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\ChemicalInventory\Index.cshtml" />
     <Content Include="Views\ChemicalInventory\Details.cshtml" />
     <Content Include="Views\ChemicalInventory\Create.cshtml" />
@@ -276,11 +280,6 @@
     <Content Include="Views\UsedList\Edit.cshtml" />
     <Content Include="Views\UsedList\Delete.cshtml" />
     <Content Include="Views\User\index.cshtml" />
-    <Content Include="Views\Claim\Index.cshtml" />
-    <Content Include="Views\Claim\Details.cshtml" />
-    <Content Include="Views\Claim\Create.cshtml" />
-    <Content Include="Views\Claim\Edit.cshtml" />
-    <Content Include="Views\Claim\Delete.cshtml" />
     <Content Include="Views\Equipment\Index.cshtml" />
     <Content Include="Views\Equipment\Details.cshtml" />
     <Content Include="Views\Equipment\Create.cshtml" />
@@ -306,6 +305,29 @@
     <Content Include="Views\Practical\Create.cshtml" />
     <Content Include="Views\Practical\Edit.cshtml" />
     <Content Include="Views\Practical\Delete.cshtml" />
+    <Content Include="Views\WasteManagement\Index.cshtml" />
+    <Content Include="Views\WasteManagement\Details.cshtml" />
+    <Content Include="Views\WasteManagement\Delete.cshtml" />
+    <Content Include="Views\WasteManagement\Manage.cshtml" />
+    <Content Include="Views\Account\LogIn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Chemical\Report.cshtml" />
+    <Content Include="Views\ChemicalInventory\Report.cshtml" />
+    <Content Include="Views\EquipmentInventory\Report.cshtml" />
+    <Content Include="Views\Equipment\Report.cshtml" />
+    <Content Include="Views\UsedList\Report.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Claim\Index.cshtml" />
+    <Content Include="Views\Claim\Details.cshtml" />
+    <Content Include="Views\Claim\Create.cshtml" />
+    <Content Include="Views\Claim\Edit.cshtml" />
+    <Content Include="Views\Claim\Delete.cshtml" />
+    <Content Include="Views\Student\Report.cshtml" />
+    <Content Include="Views\WasteManagement\PrintLabel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

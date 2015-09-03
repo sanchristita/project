@@ -4,26 +4,24 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="item-title"><span class="icon-student padd-right"></span>Students</h2>
 
-<fieldset>
-    <legend>StudentsModel</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.StudentName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.StudentName)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.StudentName) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.StudentName)</div>
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Year)
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.RegistrationNumber) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.RegistrationNumber)</div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Year)
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Year) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Year)</div>
     </div>
-</fieldset>
-<p>
+
+<p class="col-sm-10 text-center">
     @Html.ActionLink("Edit", "Edit", new { id=Model.StudentID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
 </p>

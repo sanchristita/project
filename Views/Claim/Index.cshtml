@@ -4,63 +4,56 @@
     ViewBag.Title = "Index";
 }
 
-<h2 class="item-title"><span class="icon-dollar padd-right"></span>Chemical Properties</h2>
+<h2 class="item-title"><span class="icon-dollar padd-right"></span>Claims</h2>
 
 <p class="text-right pull-right">
-    @Html.ActionLink("Add Claim", "Create", null, new {@class="btn btn-info"})
+    @Html.ActionLink("Add New Claim", "Create", null, new {@class="btn btn-info"})
     @Html.ActionLink("Return to Home", "Index", "Home", null, new {@class="btn btn-default"})
 </p>
 
-@using (Html.BeginForm("Index", "Claim", FormMethod.Get, new { @class = "pull-left search-form" }))
-{
-    <p>
-        Student Registration Number : @Html.TextBox("strSearch", null, new {@class="form-control"})
-
-        <input type="Submit" class="btn btn-default" value="Search"/>
-    </p> 
-}
-
-<div class="table-responsive clear-all">
-<table class="table table-striped table-bordered">
+<table>
     <tr>
-        <th class="text-center">
-            @Html.DisplayNameFor(model => model.StudentRegNo)
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationNumber)
         </th>
-        <th class="text-center">
+        <th>
             @Html.DisplayNameFor(model => model.equipment.EquipmentName)
         </th>
-        <th class="text-center">
+        <th>
             @Html.DisplayNameFor(model => model.Quantity)
         </th>
-        <th class="text-center">
+        <th>
             @Html.DisplayNameFor(model => model.ClaimAmount)
         </th>
-        <th class="text-center">
-             @Html.Label("Actions")
+        <th>
+            Total Claims
         </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td class="text-center">
-            @Html.DisplayFor(modelItem => item.StudentRegNo)
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationNumber)
         </td>
-        <td class="text-center">
+        <td>
             @Html.DisplayFor(modelItem => item.equipment.EquipmentName)
         </td>
-        <td class="text-center">
+        <td>
             @Html.DisplayFor(modelItem => item.Quantity)
         </td>
-        <td class="text-center">
+        <td>
             @Html.DisplayFor(modelItem => item.ClaimAmount)
         </td>
-        <td class="text-center icon-padd-top" class="text-center">
-            <a href="@Url.Action("Edit", new { id=item.ClaimID })" class="actions"><span class="icon-edit icon-big"></span></a>&nbsp&nbsp 
-            <a href="@Url.Action("Details", new { id=item.ClaimID })" class="actions"><span class="icon-details icon-big"></span></a>&nbsp&nbsp 
-            <a href="@Url.Action("Delete", new { id=item.ClaimID })" class="actions"><span class="icon-delete icon-big"></span></a>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalClaim)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ClaimID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ClaimID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClaimID })
         </td>
     </tr>
 }
 
 </table>
-</div>

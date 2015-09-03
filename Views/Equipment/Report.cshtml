@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ChemisTrackCrud.Models.EquipmentsModel>
+
+@{
+    ViewBag.Title = "Report";
+    ViewBag.Chemicals = "All";
+}
+
+<h2 class="item-title"><span class="icon-inventory padd-right"></span>Equipments Report</h2>
+
+<p class="text-right pull-right">
+    <a href="#" class="btn btn-info print">Print Report</a>
+
+    @Html.ActionLink("Equipments", "Index", "Equipment", null, new {@class="btn btn-success"})
+    @Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-default" })
+</p>
+
+
+<!-- Filter the equipments by its name --> 
+
+@using (Html.BeginForm("Index", "Equipments", FormMethod.Get, new { @class = "pull-left search-form" }))
+{
+    <p>
+        @Html.TextBox("strSearch", null, new {@class="form-control", placeholder="Equipment Name"})
+       
+        <input type="Submit" class="btn btn-default" value="Search"/>
+    </p> 
+}
+
+<div class="table-responsive clear-all print-area">
+<table  class="table table-striped table-bordered">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.EquipmentName)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th class="text-center">
+            Stock Count
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.EquipmentName)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td class="text-center">
+           @Html.DisplayFor(modelItem => item.EquipmentStockCount)
+        </td>                  
+    </tr>
+}
+
+</table>
+</div>
+

@@ -16,26 +16,13 @@ namespace ChemisTrackCrud.Controllers
         //
         // GET: /Claim/
 
-        public ViewResult Index(string strSearch)
+        public ActionResult Index()
         {
-           
-            var studentclaim = from i in db.Claims
-                        select i;
-
-            //Get list of Chemical Names
-            var studentnames = from c in studentclaim
-                               orderby c.StudentRegNo
-                               select c.StudentRegNo;
-
-            //Set distinct list of Chemicalname in ViewBag property
-            ViewBag.ChemicalNames = new SelectList(studentnames.Distinct());
-
-            //Search records by Chemical Name 
-            if (!string.IsNullOrEmpty(strSearch))
-                studentclaim = studentclaim.Where(m => m.StudentRegNo.Contains(strSearch));
-
-            return View(studentclaim);
+            var claims = db.Claims.Include(c => c.equipment);
+            return View(claims.ToList());
         }
+
+        
 
         //
         // GET: /Claim/Details/5
@@ -55,8 +42,10 @@ namespace ChemisTrackCrud.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.EquipmentID = new SelectList(db.Equipments.Where(m => m.ClaimType.Equals(true)), "EquipmentID", "EquipmentName");
+            ViewBag.EquipmentID = new SelectList(db.Equipments, "EquipmentID", "EquipmentName");
             return View();
+
+
         }
 
         //
@@ -65,14 +54,26 @@ namespace ChemisTrackCrud.Controllers
         [HttpPost]
         public ActionResult Create(ClaimsModel claimsmodel)
         {
+            
             if (ModelState.IsValid)
             {
                 db.Claims.Add(claimsmodel);
+                //db.SaveChanges();
+
+                //EquipmentsModel em = db.Equipments.Find(claimsmodel.EquipmentID);
+                //claimsmodel.ClaimAmount = claimsmodel.Quantity * em.claimStandardPrice;
+                //db.Entry(claimsmodel).State = EntityState.Modified;
+                //db.SaveChanges();
+
+                StudentsModel sm = db.Students.Find(claimsmodel.ClaimID);
+                claimsmodel.TotalClaim = claimsmodel.TotalClaim + claimsmodel.ClaimAmount;
+                db.Entry(claimsmodel).State = EntityState.Modified;
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EquipmentID = new SelectList(db.Equipments.Where(m => m.ClaimType.Equals(true)), "EquipmentID", "EquipmentName", claimsmodel.EquipmentID);
+            ViewBag.EquipmentID = new SelectList(db.Equipments, "EquipmentID", "EquipmentName", claimsmodel.EquipmentID);
             return View(claimsmodel);
         }
 
@@ -86,7 +87,7 @@ namespace ChemisTrackCrud.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EquipmentID = new SelectList(db.Equipments.Where(m => m.ClaimType.Equals(true)), "EquipmentID", "EquipmentName", claimsmodel.EquipmentID);
+            ViewBag.EquipmentID = new SelectList(db.Equipments, "EquipmentID", "EquipmentName", claimsmodel.EquipmentID);
             return View(claimsmodel);
         }
 
@@ -102,7 +103,7 @@ namespace ChemisTrackCrud.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EquipmentID = new SelectList(db.Equipments.Where(m => m.ClaimType.Equals(true)), "EquipmentID", "EquipmentName", claimsmodel.EquipmentID);
+            ViewBag.EquipmentID = new SelectList(db.Equipments, "EquipmentID", "EquipmentName", claimsmodel.EquipmentID);
             return View(claimsmodel);
         }
 

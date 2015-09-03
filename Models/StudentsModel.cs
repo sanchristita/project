@@ -10,7 +10,12 @@ namespace ChemisTrackCrud.Models
     {
         [Key]
         public int StudentID { get; set; }
+
         public string StudentName { get; set; }
+
+        public string RegistrationNumber { get; set; }
+
         public int Year { get; set; }
+
     }
 }

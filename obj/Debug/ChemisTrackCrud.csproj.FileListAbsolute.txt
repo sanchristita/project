@@ -52,3 +52,4 @@ C:\Users\chris\Desktop\ChemisTrackCrud\ChemisTrackCrud\ChemisTrackCrud\bin\Syste
 C:\Users\chris\Desktop\ChemisTrackCrud\ChemisTrackCrud\ChemisTrackCrud\bin\System.Web.WebPages.xml
 C:\Users\chris\Desktop\ChemisTrackCrud\ChemisTrackCrud\ChemisTrackCrud\bin\System.Web.WebPages.Deployment.xml
 C:\Users\chris\Desktop\ChemisTrackCrud\ChemisTrackCrud\ChemisTrackCrud\bin\System.Web.WebPages.Razor.xml
+E:\mvc\ChemisTrackCrud\ChemisTrackCrud\bin\SimpleCrypto.dll

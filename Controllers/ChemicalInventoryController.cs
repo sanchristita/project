@@ -14,22 +14,31 @@ namespace ChemisTrackCrud.Controllers
     {
         private Context db = new Context();
 
-        
-
         //
-        // GET: /ChemicalInventory/
-
-        /*
-        public ActionResult Index()
-        {
-            var chemicalsinventory = db.ChemicalsInventory.Include(c => c.Chemicals);
-            return View(chemicalsinventory.ToList());
-        }
-        * */
-
-        
+        // GET: /Chemical/
 
         public ViewResult Index(string ChemicalInventoryNames, string strSearch)
+        {
+            var iupac = from j in db.ChemicalsInventory.Include(c =>c.Chemicals)
+                        select j;
+
+            var chemicalInventoryList = from c in iupac
+                                        orderby c.Chemicals.ChemicalName
+                                        select c.Chemicals.ChemicalName;
+
+            ViewBag.ChemicalInventoryNames = new SelectList(chemicalInventoryList.Distinct());
+
+            if (!string.IsNullOrEmpty(strSearch))
+                iupac = iupac.Where(m => m.Chemicals.ChemicalName.Contains(strSearch));
+
+            if (!string.IsNullOrEmpty(ChemicalInventoryNames))
+                iupac = iupac.Where(m => m.Chemicals.ChemicalName == ChemicalInventoryNames);
+
+            return View(iupac);
+
+        }
+
+        public ViewResult Report(string ChemicalInventoryNames, string strSearch, DateTime? startDate, DateTime? endDate)
         {
             var iupac = from j in db.ChemicalsInventory.Include(c => c.Chemicals)
                         select j;
@@ -45,6 +54,12 @@ namespace ChemisTrackCrud.Controllers
 
             if (!string.IsNullOrEmpty(ChemicalInventoryNames))
                 iupac = iupac.Where(m => m.Chemicals.ChemicalName == ChemicalInventoryNames);
+
+            if (startDate != null)
+                iupac = iupac.Where(m => m.Date >= startDate);
+
+            if (endDate != null)
+                iupac = iupac.Where(m => m.Date <= endDate);
 
             return View(iupac);
 

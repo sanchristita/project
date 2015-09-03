@@ -37,6 +37,30 @@ namespace ChemisTrackCrud.Controllers
             return View(equipmentsearch);
         }
 
+
+        //
+        // Report
+
+        public ViewResult Report(string strSearch)
+        {
+            var equipmentsearch = from i in db.Equipments
+                                  select i;
+
+            //Get list of Chemical Names
+            var equipmentsnames = from c in equipmentsearch
+                                  orderby c.EquipmentID
+                                  select c.EquipmentName;
+
+            //Set distinct list of Chemicalname in ViewBag property
+            ViewBag.EquipmentNames = new SelectList(equipmentsnames.Distinct());
+
+            //Search records by Chemical Name 
+            if (!string.IsNullOrEmpty(strSearch))
+                equipmentsearch = equipmentsearch.Where(m => m.EquipmentName.Contains(strSearch));
+
+            return View(equipmentsearch);
+        }
+
         //
         // GET: /Equipment/Details/5
 

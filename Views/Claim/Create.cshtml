@@ -4,35 +4,47 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create New Claim</h2>
+<h2>Create</h2>
 
-@using (Html.BeginForm("Create","Claim",FormMethod.Post)) {
+@using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
-        <div class="form-group clearfix">
-            @Html.LabelFor(model => model.StudentRegNo, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.StudentRegNo, new {@class = "col-sm-6 form-control" })
-            @Html.ValidationMessageFor(model => model.StudentRegNo)
+    <fieldset>
+        <legend>ClaimsModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RegistrationNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RegistrationNumber)
+            @Html.ValidationMessageFor(model => model.RegistrationNumber)
         </div>
 
-        <div class="form-group clearfix">
-            @Html.LabelFor(model => model.EquipmentID, "equipment", new {@class = "col-sm-4 text-right" })
-            <div class="col-sm-6 form-control">@Html.DropDownList("EquipmentID", String.Empty)</div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EquipmentID, "equipment")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("EquipmentID", String.Empty)
             @Html.ValidationMessageFor(model => model.EquipmentID)
         </div>
 
-        <div class="form-group clearfix">
-            @Html.LabelFor(model => model.Quantity, new {@class = "col-sm-4 text-right" })
-            @Html.EditorFor(model => model.Quantity, new {@class = "col-sm-6 form-control" })
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quantity)
             @Html.ValidationMessageFor(model => model.Quantity)
         </div>
 
-        <p class="col-sm-10 text-center">
-            <input type="submit" value="Create" class="btn btn-success"/>
-            @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
+        <p>
+            <input type="submit" value="Create" />
         </p>
- 
+    </fieldset>
 }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

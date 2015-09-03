@@ -20,6 +20,8 @@
         Formula : @Html.TextBox("strSearch", null, new {@class="form-control"})
 
         <input type="Submit" class="btn btn-default" value="Search"/>
+
+        @Html.ActionLink("Report", "Report", null, new {@class="btn btn-info"})
     </p> 
 }
 
@@ -66,6 +68,7 @@
                     <a href="@Url.Action("Edit", new { id= item.ChemicalID})" class="actions"><span class="icon-edit icon-big"></span></a>&nbsp&nbsp
                     <a href="@Url.Action("Details", new { id = item.ChemicalID })" class="actions"><span class="icon-details icon-big"></span></a>&nbsp&nbsp
                     <a href="@Url.Action("Delete", new { id = item.ChemicalID })" class="actions"><span class="icon-delete icon-big"></span></a>
+                </td>
             </tr>
         }
 

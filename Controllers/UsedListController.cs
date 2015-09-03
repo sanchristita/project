@@ -16,14 +16,6 @@ namespace ChemisTrackCrud.Controllers
         //
         // GET: /UsedList/
 
-        /*
-        public ActionResult Index()
-        {
-            var usedlists = db.UsedLists.Include(u => u.Chemicals);
-            return View(usedlists.ToList());
-        }
-         */
-
         public ViewResult Index(string UsedChemicals, string strSearch)
         {
             var iupac = from j in db.UsedLists.Include(c => c.Chemicals)
@@ -40,6 +32,37 @@ namespace ChemisTrackCrud.Controllers
 
             if (!string.IsNullOrEmpty(UsedChemicals))
                 iupac = iupac.Where(m => m.Chemicals.ChemicalName == UsedChemicals);
+
+            return View(iupac);
+
+        }
+
+
+        // 
+        // Report
+
+        public ViewResult Report(string UsedChemicals, string strSearch, DateTime? startDate, DateTime? endDate)
+        {
+            var iupac = from j in db.UsedLists.Include(c => c.Chemicals)
+                        select j;
+
+            var ChemicalsUsedList = from c in iupac
+                                    orderby c.Chemicals.ChemicalName
+                                    select c.Chemicals.ChemicalName;
+
+            ViewBag.ChemicalUsedListNames = new SelectList(ChemicalsUsedList.Distinct());
+
+            if (!string.IsNullOrEmpty(strSearch))
+                iupac = iupac.Where(m => m.Chemicals.ChemicalName.Contains(strSearch));
+
+            if (!string.IsNullOrEmpty(UsedChemicals))
+                iupac = iupac.Where(m => m.Chemicals.ChemicalName == UsedChemicals);
+
+            if (startDate != null)
+                iupac = iupac.Where(m => m.UsedDate >= startDate);
+
+            if (endDate != null)
+                iupac = iupac.Where(m => m.UsedDate <= endDate);
 
             return View(iupac);
 

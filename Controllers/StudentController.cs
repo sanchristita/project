@@ -16,9 +16,49 @@ namespace ChemisTrackCrud.Controllers
         //
         // GET: /Student/
 
-        public ActionResult Index()
+        public ViewResult Index(string strSearch)
         {
-            return View(db.Students.ToList());
+
+            var studentsearch = from i in db.Students
+                                  select i;
+
+            //Get list of Chemical Names
+            var studentsnames = from c in studentsearch
+                                  orderby c.StudentID
+                                  select c.RegistrationNumber;
+
+            //Set distinct list of Chemicalname in ViewBag property
+            ViewBag.students = new SelectList(studentsnames.Distinct());
+
+            //Search records by Chemical Name 
+            if (!string.IsNullOrEmpty(strSearch))
+                studentsearch = studentsearch.Where(m => m.RegistrationNumber.Contains(strSearch));
+
+            return View(studentsearch);
+        }
+
+        //
+        // Report
+
+        public ViewResult Report(string strSearch)
+        {
+
+            var studentsearch = from i in db.Students
+                                select i;
+
+            //Get list of Chemical Names
+            var studentsnames = from c in studentsearch
+                                orderby c.StudentID
+                                select c.RegistrationNumber;
+
+            //Set distinct list of Chemicalname in ViewBag property
+            ViewBag.students = new SelectList(studentsnames.Distinct());
+
+            //Search records by Chemical Name 
+            if (!string.IsNullOrEmpty(strSearch))
+                studentsearch = studentsearch.Where(m => m.RegistrationNumber.Contains(strSearch));
+
+            return View(studentsearch);
         }
 
         //

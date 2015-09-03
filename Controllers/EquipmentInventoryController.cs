@@ -16,32 +16,54 @@ namespace ChemisTrackCrud.Controllers
         //
         // GET: /EquipmentInventory/
 
-        /*
-        public ActionResult Index()
-        {
-            var equipmentsinventory = db.EquipmentsInventory.Include(e => e.Equipments);
-            return View(equipmentsinventory.ToList());
-        }
-         */
-
         public ViewResult Index(string EquipmentInventories, string strSearch)
         {
-            var iupac = from j in db.EquipmentsInventory.Include(e => e.Equipments)
+            var equip = from j in db.EquipmentsInventory.Include(e => e.Equipments)
                         select j;
 
-            var equipmentInventoryList = from e in iupac
+            var equipmentInventoryList = from e in equip
                                          orderby e.Equipments.EquipmentName
                                          select e.Equipments.EquipmentName;
 
             ViewBag.EquipmentInventoryNames = new SelectList(equipmentInventoryList.Distinct());
 
             if (!string.IsNullOrEmpty(strSearch))
-                iupac = iupac.Where(m => m.Equipments.EquipmentName.Contains(strSearch));
+                equip = equip.Where(m => m.Equipments.EquipmentName.Contains(strSearch));
 
             if (!string.IsNullOrEmpty(EquipmentInventories))
-                iupac = iupac.Where(m => m.Equipments.EquipmentName == EquipmentInventories);
+                equip = equip.Where(m => m.Equipments.EquipmentName == EquipmentInventories);
 
-            return View(iupac);
+            return View(equip);
+
+        }
+
+        //
+        // Report 
+
+        public ViewResult Report (string EquipmentInventories, string strSearch, DateTime? startDate, DateTime? endDate)
+        {
+            var equip = from j in db.EquipmentsInventory.Include(e => e.Equipments)
+                        select j;
+
+            var equipmentInventoryList = from e in equip
+                                         orderby e.Equipments.EquipmentName
+                                         select e.Equipments.EquipmentName;
+
+            ViewBag.EquipmentInventoryNames = new SelectList(equipmentInventoryList.Distinct());
+
+            if (!string.IsNullOrEmpty(strSearch))
+                equip = equip.Where(m => m.Equipments.EquipmentName.Contains(strSearch));
+
+            if (!string.IsNullOrEmpty(EquipmentInventories))
+                equip = equip.Where(m => m.Equipments.EquipmentName == EquipmentInventories);
+
+            if (startDate != null)
+                equip = equip.Where(m => m.EquipmentOrderDate >= startDate);
+
+            if (endDate != null)
+                equip = equip.Where(m => m.EquipmentOrderDate <= endDate);
+
+            return View(equip);
 
         }
 
