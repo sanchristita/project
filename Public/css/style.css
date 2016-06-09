@@ -4,35 +4,34 @@
 
 /*button overriden styles*/
 
-.btn.btn-primary{
+.btn.btn-primary {
     background: #1abc9c none repeat scroll 0 0;
     border: 0;
     min-width: 180px;
 }
 
-div.header-section
-{   
+div.header-section {
     background-color: #ddd;
     border-bottom: 2px solid #ccc;
     height: 100px;
     padding: 15px;
 }
 
-footer{
+footer {
     height: 80px;
     background: #ccc;
 }
 
-footer .container{
-    line-height: 80px;
-}
+    footer .container {
+        line-height: 80px;
+    }
 
-.body .home-container{
+.body .home-container {
     padding: 100px 0;
     text-align: center;
 }
 
-.registration-form{
+.registration-form {
     margin: auto;
     width: 320px;
 }
@@ -55,40 +54,46 @@ footer .container{
         float: left;
     }
 
-    .actions-group .main-action:hover, .actions-group .main-action:focus, .actions-group .main-action:active{
-        text-decoration: none;
-        opacity: 0.8;
-    }
+        .actions-group .main-action:hover, .actions-group .main-action:focus, .actions-group .main-action:active {
+            text-decoration: none;
+            opacity: 0.8;
+        }
 
-    
-.main-action span{
-  font-size: 40px;
-  vertical-align: middle;
-} 
 
-    .actions-group .chemicals{
-        background: #1abc9c;
-    }
-    .actions-group .equipments{
-        background: #96281B;
-    }
-    .actions-group .students{
-        background: #674172;
-    }
-    .actions-group .claims{
-        background: #22313F;
-    }
-    .actions-group .practicals{
-        background: #d35400;
-    }
-    .actions-group .waste-management{
-        background: #14a31b;
-    }
+.main-action span {
+    font-size: 40px;
+    vertical-align: middle;
+}
+
+.actions-group .chemicals {
+    background: #1abc9c;
+}
+
+.actions-group .equipments {
+    background: #96281B;
+}
+
+.actions-group .students {
+    background: #674172;
+}
+
+.actions-group .claims {
+    background: #22313F;
+}
+
+.actions-group .practicals {
+    background: #d35400;
+}
+
+.actions-group .waste-management {
+    background: #14a31b;
+}
+
 .text-right {
     text-align: right;
 }
 
-.padd-right{
+.padd-right {
     padding-right: 20px;
 }
 
@@ -96,12 +101,12 @@ footer .container{
     text-align: center;
 }
 
-.clear-all{
+.clear-all {
     clear: both;
     padding-top: 20px;
 }
 
-.icon-padd-top{
+.icon-padd-top {
     padding: 6px 0 0;
 }
 
@@ -109,8 +114,7 @@ footer .container{
     color: red;
 }
 
-span.expired-notification
-{
+span.expired-notification {
     background: red none repeat scroll 0 0;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -124,32 +128,32 @@ span.expired-notification
     width: 20px;
 }
 
-.item-title{
+.item-title {
     border-bottom: 1px solid #030303;
 }
 
-.search-form .form-control{
+.search-form .form-control {
     display: inline;
     display: inline-block;
 }
 
-td a.actions:hover, td a.actions:focus, td a.actions:active{
+td a.actions:hover, td a.actions:focus, td a.actions:active {
     text-decoration: none;
     opacity: 0.8;
 }
 
-.button-top-padd{
+.button-top-padd {
     padding: 20px 0;
 }
 
-.low-stock{
+.low-stock {
     color: #ee0000;
     font-size: 20px;
 }
 
-.required-sign{
-    color:red;
-    font-size:20px;
+.required-sign {
+    color: red;
+    font-size: 20px;
 }
 
 /*styles for user login*/
@@ -157,4 +161,13 @@ td a.actions:hover, td a.actions:focus, td a.actions:active{
 .form-login {
     width: 260px;
     margin: auto;
+}
+
+.login-title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.field-validation-error, .validation-summary-errors {
+    color: red;
 }

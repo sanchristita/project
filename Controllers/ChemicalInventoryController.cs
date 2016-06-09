@@ -10,6 +10,7 @@ using System.Dynamic;
 
 namespace ChemisTrackCrud.Controllers
 {
+    [Authorize(Users = "admin, labuser")]
     public class ChemicalInventoryController : Controller
     {
         private Context db = new Context();
@@ -23,8 +24,8 @@ namespace ChemisTrackCrud.Controllers
                         select j;
 
             var chemicalInventoryList = from c in iupac
-                                        orderby c.Chemicals.ChemicalName
-                                        select c.Chemicals.ChemicalName;
+                                        orderby c.Chemicals.ChemicalID
+                                        select c.Chemicals.ChemicalID;
 
             ViewBag.ChemicalInventoryNames = new SelectList(chemicalInventoryList.Distinct());
 
@@ -45,7 +46,7 @@ namespace ChemisTrackCrud.Controllers
 
             var chemicalInventoryList = from c in iupac
                                         orderby c.Chemicals.ChemicalName
-                                        select c.Chemicals.ChemicalName;
+                                        select c.Chemicals.ChemicalID;
 
             ViewBag.ChemicalInventoryNames = new SelectList(chemicalInventoryList.Distinct());
 
@@ -71,7 +72,7 @@ namespace ChemisTrackCrud.Controllers
         public ActionResult Details(int id = 0)
         {
             ChemicalsInventoryModel chemicalsinventorymodel = db.ChemicalsInventory.Find(id);
-            chemicalsinventorymodel.Chemicals = db.Chemicals.Find(chemicalsinventorymodel.ChemicalID);
+            chemicalsinventorymodel.Chemicals = db.Chemicals.Find(chemicalsinventorymodel.ChemicalID); //display the name of chemical
 
             if (chemicalsinventorymodel == null)
             {
@@ -101,9 +102,10 @@ namespace ChemisTrackCrud.Controllers
                 db.ChemicalsInventory.Add(chemicalsinventorymodel);
                 db.SaveChanges();
 
-                ChemicalsModel sd = db.Chemicals.Find(chemicalsinventorymodel.ChemicalID);
-                sd.StockCount = sd.StockCount + chemicalsinventorymodel.Quantity;
-                db.Entry(sd).State = EntityState.Modified;
+                // calculate the Total stock for specific chemical
+                ChemicalsModel cm = db.Chemicals.Find(chemicalsinventorymodel.ChemicalID);
+                cm.StockCount = cm.StockCount + chemicalsinventorymodel.Quantity;
+                db.Entry(cm).State = EntityState.Modified;
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -149,7 +151,8 @@ namespace ChemisTrackCrud.Controllers
         public ActionResult Delete(int id = 0)
         {
             ChemicalsInventoryModel chemicalsinventorymodel = db.ChemicalsInventory.Find(id);
-            chemicalsinventorymodel.Chemicals = db.Chemicals.Find(chemicalsinventorymodel.ChemicalID);
+            chemicalsinventorymodel.Chemicals = db.Chemicals.Find(chemicalsinventorymodel.ChemicalID); //display the name of chemical
+
             if (chemicalsinventorymodel == null)
             {
                 return HttpNotFound();

@@ -1,0 +1,44 @@
+﻿@model ChemisTrackCrud.Models.ClaimsModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="item-title"><span class="icon-dollar padd-right"></span>Claim Details</h2>
+
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Student.RegistrationNumber) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Student.RegistrationNumber)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Year) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Year)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.ClaimDate) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.ClaimDate)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.equipment.EquipmentName) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.equipment.EquipmentName)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Quantity) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Quantity)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.ClaimAmount) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.ClaimAmount)</div>
+    </div>
+
+
+<p class="col-sm-10 text-center">
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ClaimID }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
+</p>

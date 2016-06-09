@@ -15,7 +15,10 @@ namespace ChemisTrackCrud.Models
 
         public string RegistrationNumber { get; set; }
 
-        public int Year { get; set; }
+        public decimal TotalClaim { get; set; }
+
+
+
 
     }
 }

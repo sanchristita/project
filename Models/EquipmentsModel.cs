@@ -21,14 +21,12 @@ namespace ChemisTrackCrud.Models
         [Display(Name = "Remarks")]
         public string Remarks { get; set; }
 
-        [Required]
-        [Display(Name="Allow Claim ")]
+        [Display(Name = "Allow Claim ")]
         public bool ClaimType { get; set; }
 
-        [Required]
+        public decimal EquipmentStockCount { get; set; }
+
         [Display(Name = "Standard Price for Claim")]
         public decimal claimStandardPrice { get; set; }
-
-        public decimal EquipmentStockCount { get; set; }
     }
 }

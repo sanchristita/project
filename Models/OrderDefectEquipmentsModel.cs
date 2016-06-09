@@ -12,7 +12,6 @@ namespace ChemisTrackCrud.Models
         public int OrderDefectEquipmentsID { get; set; }
 
         [Required]
-        public EquipmentsInventoryModel equipmentsInventory { get; set; }
         public string OrderNo { get; set; }
 
         [Required]

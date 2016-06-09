@@ -1,32 +1,25 @@
 ﻿@model ChemisTrackCrud.Models.ChemicalsModel
-
 @{
     ViewBag.Title = "Create";
 }
-
 <h2 class="item-title"><span class="icon-chemical padd-right"></span>Create New Chemical</h2>
-
 @using (Html.BeginForm("Create","Chemical",FormMethod.Post)) {
     @Html.ValidationSummary(true)
-
         <div class="form-group clearfix">
             <label class="col-sm-4 text-right">Chemical Name <span class="required-sign">*</span></label>
             @Html.TextBoxFor(model => model.ChemicalName, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.ChemicalName)
         </div>
-
         <div class="form-group clearfix">
             <label class="col-sm-4 text-right">IUPAC Name <span class="required-sign">*</span></label>
             @Html.TextBoxFor(model => model.ScientificName, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.ScientificName)
         </div>
-    
-        <div class="form-group clearfix">
+       <div class="form-group clearfix">
             @Html.LabelFor(model => model.Formula, new {@class = "col-sm-4 text-right" })
             @Html.TextBoxFor(model => model.Formula, new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.Formula)
         </div>
-
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Nature, new {@class = "col-sm-4 text-right" })
             @Html.DropDownList("Nature", new List<SelectListItem>
@@ -37,31 +30,26 @@
                                         }, "Select", new { @class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.Nature)
         </div>
-
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Color, new {@class = "col-sm-4 text-right" })
             @Html.TextBoxFor(model => model.Color, new { @class = "col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.Color)
         </div>
-
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Odour, new {@class = "col-sm-4 text-right" })
             @Html.TextBoxFor(model => model.Odour, new { @class = "col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.Odour)
         </div>
-
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.MeltingPoint, new {@class = "col-sm-4 text-right" })
             @Html.TextBoxFor(model => model.MeltingPoint, new { @class = "col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.MeltingPoint)
         </div>
-
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.BoilingPoint, new {@class = "col-sm-4 text-right" })
             @Html.TextBoxFor(model => model.BoilingPoint, new { @class = "col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.BoilingPoint)
         </div>
-
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Flammable, new {@class = "col-sm-4 text-right" })
             @Html.DropDownList("Flammable", new List<SelectListItem> 
@@ -71,7 +59,6 @@
                                             },"Select", new {@class = "col-sm-6 form-control" })
             @Html.ValidationMessageFor(model => model.Flammable)
         </div>
-
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.Toxicity, new {@class = "col-sm-4 text-right" })
             @Html.DropDownList("Toxicity", new List<SelectListItem>
@@ -81,7 +68,6 @@
                                            }, "Select", new { @class = "col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.Toxicity)
         </div>
-    
         <div class="form-group clearfix">
             @Html.LabelFor(model => model.HazardousWaste, new { @class = "col-sm-4 text-right"})
             @Html.DropDownList("HazardousWaste", new List<SelectListItem> 
@@ -94,14 +80,11 @@
                                                  }, "Select", new { @class="col-sm-6 form-control"})
             @Html.ValidationMessageFor(model => model.HazardousWaste)
         </div>
-    
-
         <p class="col-sm-10 text-center">
             <input type="submit" value="Create" class="btn btn-success" />
              @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
         </p>
 }
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

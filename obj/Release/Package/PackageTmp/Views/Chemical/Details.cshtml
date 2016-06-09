@@ -1,0 +1,69 @@
+﻿@model ChemisTrackCrud.Models.ChemicalsModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="item-title"><span class="icon-chemical padd-right"></span>Chemical Property Detail</h2>
+
+    <div class="form-group clearfix">
+       <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.ChemicalName) :</div>
+       <div class="col-sm-6"> @Html.DisplayFor(model => model.ChemicalName)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right"> @Html.DisplayNameFor(model => model.ScientificName) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.ScientificName)</div>
+    </div>
+
+    <!--
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right"> @Html.DisplayNameFor(model => model.Formula) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Formula)</div>
+    </div>
+    -->
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Nature) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Nature)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Color) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Color)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Odour) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Odour)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right"> @Html.DisplayNameFor(model => model.MeltingPoint) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.MeltingPoint)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.BoilingPoint) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.BoilingPoint)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Flammable) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Flammable)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.Toxicity) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.Toxicity) </div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.HazardousWaste) :</div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.HazardousWaste) </div>       
+    </div>
+
+<p class="col-sm-10 text-center">
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ChemicalID}) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
+</p>

@@ -9,6 +9,7 @@ using ChemisTrackCrud.Models;
 
 namespace ChemisTrackCrud.Controllers
 {
+    [Authorize]
     public class StudentController : Controller
     {
         private Context db = new Context();
@@ -39,7 +40,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // Report
-
+        [Authorize(Users = "admin, labuser")]
         public ViewResult Report(string strSearch)
         {
 
@@ -76,7 +77,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // GET: /Student/Create
-
+        [Authorize(Users = "admin, labuser")]
         public ActionResult Create()
         {
             return View();
@@ -84,7 +85,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // POST: /Student/Create
-
+        [Authorize(Users = "admin, labuser")]
         [HttpPost]
         public ActionResult Create(StudentsModel studentsmodel)
         {
@@ -100,7 +101,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // GET: /Student/Edit/5
-
+        [Authorize(Users = "admin, labuser")]
         public ActionResult Edit(int id = 0)
         {
             StudentsModel studentsmodel = db.Students.Find(id);
@@ -113,7 +114,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // POST: /Student/Edit/5
-
+        [Authorize(Users = "admin, labuser")]
         [HttpPost]
         public ActionResult Edit(StudentsModel studentsmodel)
         {
@@ -128,7 +129,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // GET: /Student/Delete/5
-
+        [Authorize(Users = "admin, labuser")]
         public ActionResult Delete(int id = 0)
         {
             StudentsModel studentsmodel = db.Students.Find(id);
@@ -141,7 +142,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // POST: /Student/Delete/5
-
+        [Authorize(Users = "admin, labuser")]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {

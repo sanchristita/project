@@ -1,0 +1,25 @@
+﻿@model ChemisTrackCrud.Models.AccountModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm("Register", "Account", FormMethod.Post)) 
+{
+    @Html.ValidationSummary(true, "Login failed");
+    
+    <div>
+        @Html.TextBoxFor(m => m.UserName)
+        @Html.ValidationMessageFor(m => m.UserName)
+    </div>@*
+    <div>
+        @Html.TextBoxFor(m => m.Role)
+        @Html.ValidationMessageFor(m => m.Role)
+    </div>*@
+    <div>
+        @Html.TextBoxFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+    
+    <input type="submit" value="Register" class="btn btn-success"/>
+}

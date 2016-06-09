@@ -9,6 +9,7 @@ using ChemisTrackCrud.Models;
 
 namespace ChemisTrackCrud.Controllers
 {
+    [Authorize(Users = "admin, labuser")]
     public class WasteManagementController : Controller
     {
         private Context db = new Context();
@@ -70,9 +71,14 @@ namespace ChemisTrackCrud.Controllers
         //
         // Print Waste Label
 
-        public ViewResult PrintLabel()
+        public ActionResult PrintLabel(int id = 0)
         {
-            return View();
+            WasteManagementModel wastemanagementmodel = db.WasteManagements.Find(id);
+            if (wastemanagementmodel == null)
+            {
+                return HttpNotFound();
+            }
+            return View(wastemanagementmodel);
         }
 
         //

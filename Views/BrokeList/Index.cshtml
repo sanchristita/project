@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2 class="item-title"><span class="icon-inventory padd-right"></span>Broke Equipments</h2>
+<h2 class="item-title"><span class="icon-inventory padd-right"></span>Broken Equipments</h2>
 
 <p class="text-right pull-right">
-    @Html.ActionLink("Add Broked Equipments ", "Create", null, new {@class="btn btn-info"})
+    @Html.ActionLink("Add Broken Equipments ", "Create", null, new {@class="btn btn-info"})
     @Html.ActionLink("Return to Stock", "Index", "EquipmentInventory", null, new {@class="btn btn-warning"})
     @Html.ActionLink("Return to Equipments", "Index", "Equipment", null, new {@class="btn btn-success"})
     @Html.ActionLink("Return to Home", "Index", "Home", null, new {@class="btn btn-default"})
@@ -25,9 +25,7 @@
         <th class="text-center">
             @Html.DisplayNameFor(model => model.UsedQuantity)
         </th>
-        <th class="text-center">
-            @Html.DisplayNameFor(model => model.EquipmentStockCount)
-        </th>
+        
         <th class="text-center">
             @Html.Label("Actions")
         </th>
@@ -44,9 +42,7 @@
         <td class="text-center">
             @Html.DisplayFor(modelItem => item.UsedQuantity)
         </td>
-        <td class="text-center">
-            @Html.DisplayFor(modelItem => item.EquipmentStockCount)
-        </td>
+        
 
         <td class="text-center icon-padd-top">
             <a href="@Url.Action("Edit", new { id=item.BrokeListsID })" class="actions"><span class="icon-edit icon-big"></span></a>&nbsp&nbsp

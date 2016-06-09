@@ -9,6 +9,7 @@ using ChemisTrackCrud.Models;
 
 namespace ChemisTrackCrud.Controllers
 {
+    [Authorize]
     public class EquipmentController : Controller
     {
         private Context db = new Context();
@@ -40,7 +41,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // Report
-
+        [Authorize(Users = "admin, labuser")]
         public ViewResult Report(string strSearch)
         {
             var equipmentsearch = from i in db.Equipments
@@ -76,7 +77,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // GET: /Equipment/Create
-
+        [Authorize(Users = "admin, labuser")]
         public ActionResult Create()
         {
             return View();
@@ -84,12 +85,17 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // POST: /Equipment/Create
-
+        [Authorize(Users = "admin, labuser")]
         [HttpPost]
         public ActionResult Create(EquipmentsModel equipmentsmodel)
         {
+            ModelState["claimStandardPrice"].Errors.Clear();
             if (ModelState.IsValid)
             {
+                if (!equipmentsmodel.ClaimType) 
+                {
+                    equipmentsmodel.claimStandardPrice = 0;
+                }
                 db.Equipments.Add(equipmentsmodel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -100,7 +106,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // GET: /Equipment/Edit/5
-
+        [Authorize(Users = "admin, labuser")]
         public ActionResult Edit(int id = 0)
         {
             EquipmentsModel equipmentsmodel = db.Equipments.Find(id);
@@ -113,7 +119,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // POST: /Equipment/Edit/5
-
+        [Authorize(Users = "admin, labuser")]
         [HttpPost]
         public ActionResult Edit(EquipmentsModel equipmentsmodel)
         {
@@ -128,7 +134,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // GET: /Equipment/Delete/5
-
+        [Authorize(Users = "admin, labuser")]
         public ActionResult Delete(int id = 0)
         {
             EquipmentsModel equipmentsmodel = db.Equipments.Find(id);
@@ -141,7 +147,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // POST: /Equipment/Delete/5
-
+        [Authorize(Users = "admin, labuser")]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {

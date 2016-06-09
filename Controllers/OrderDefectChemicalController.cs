@@ -9,6 +9,7 @@ using ChemisTrackCrud.Models;
 
 namespace ChemisTrackCrud.Controllers
 {
+    [Authorize(Users = "admin, labuser")]
     public class OrderDefectChemicalController : Controller
     {
         private Context db = new Context();
@@ -28,7 +29,7 @@ namespace ChemisTrackCrud.Controllers
         public ActionResult Details(int id = 0)
         {
             OrderDefectChemicalsModel orderdefectchemicalsmodel = db.OrderDefectChemicals.Find(id);
-            orderdefectchemicalsmodel.chemicals = db.Chemicals.Find(orderdefectchemicalsmodel.ChemicalID);
+            orderdefectchemicalsmodel.chemicals = db.Chemicals.Find(orderdefectchemicalsmodel.ChemicalID); // display the name of chemical
 
             if (orderdefectchemicalsmodel == null)
             {
@@ -99,6 +100,8 @@ namespace ChemisTrackCrud.Controllers
         public ActionResult Delete(int id = 0)
         {
             OrderDefectChemicalsModel orderdefectchemicalsmodel = db.OrderDefectChemicals.Find(id);
+            orderdefectchemicalsmodel.chemicals = db.Chemicals.Find(orderdefectchemicalsmodel.ChemicalID);   // display the name of chemical
+
             if (orderdefectchemicalsmodel == null)
             {
                 return HttpNotFound();

@@ -1,0 +1,125 @@
+﻿@model IEnumerable<ChemisTrackCrud.Models.ChemicalsInventoryModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="item-title"><span class="icon-chemical padd-right"></span>Chemical Stock</h2>
+
+<p class="text-right pull-right">
+    @Html.ActionLink("Create New Stock", "Create", null, new {@class="btn btn-info"})
+    @Html.ActionLink("Defects", "Index", "OrderDefectChemical", null, new {@class="btn btn-warning"})
+    @Html.ActionLink("Waste", "Index", "WasteManagement", null, new {@class="btn btn-danger"})
+    @Html.ActionLink("Chemicals", "Index", "Chemical", null, new {@class="btn btn-success"})
+    @Html.ActionLink("Home", "Index", "Home", null, new {@class="btn btn-default"})
+</p>
+
+
+<!-- Search chemicals by its Chemical Name or IUPAC Name -->
+@using (Html.BeginForm("Index", "ChemicalInventory", FormMethod.Get, new { @class = "pull-left search-form" }))
+{
+    <p>
+        Chemical Name : @Html.DropDownList("ChemicalInventoryNames","All")
+        IUPAC Name : @Html.TextBox("strSearch", null, new {@class="form-control"})
+
+        <input type="Submit" class="btn btn-default"  value="Search"/>
+
+        @Html.ActionLink("Report", "Report", null, new {@class="btn btn-info"})
+    </p> 
+}
+
+
+<div class="table-responsive clear-all">
+<table class="table table-bordered">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Chemicals.ChemicalName)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.OrderNo)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.SupplierName)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.ExpiredDate)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.GRN_No)
+        </th>
+       <th class="text-center">
+            @Html.Label("Actions")
+       </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr
+    @if (item.ExpiredDate <= DateTime.Now)
+    {
+        @Html.Raw("style = 'background-color: #FDD;'")
+    }
+        >      
+        <td class="text-center">
+            <a href="@Url.Action("Details", new { id=item.ChemicalsInventoryID })">@Html.DisplayFor(modelItem => item.Chemicals.ChemicalName)</a>
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.OrderNo)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.SupplierName)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.ExpiredDate)
+            @{DateTime dateForExpiry = DateTime.Now.AddDays(30);}
+            @if(item.ExpiredDate <= dateForExpiry)
+            {
+                <span class="expired-notification" data-toggle="tooltip" data-placement="top" title="Stock is going to expire">!</span>
+            }
+            
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.GRN_No)
+        </td>
+        <td class="text-center">
+            <a href="@Url.Action("Edit", new { id=item.ChemicalsInventoryID })" class="actions"><span class="icon-edit icon-big"></span></a>&nbsp&nbsp
+            <a href="@Url.Action("Details", new { id=item.ChemicalsInventoryID })" class="actions"><span class="icon-details icon-big"></span></a>&nbsp&nbsp
+            @if (item.ExpiredDate <= DateTime.Now)
+            {
+                <a href="@Url.Action("Manage", "WasteManagement", new { id=item.ChemicalsInventoryID })" class="actions"><span class="icon-radioactive red icon-big"></span></a>
+            }
+            else 
+            {
+                <a href="@Url.Action("Delete", new { id=item.ChemicalsInventoryID })" class="actions"><span class="icon-delete icon-big"></span></a>
+            }
+            
+        </td>
+    </tr>
+}
+
+</table>
+</div>

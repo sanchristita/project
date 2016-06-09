@@ -13,7 +13,7 @@
     @Html.ActionLink("Return to Home", "Index", "Home", null, new {@class="btn btn-default"})
 </p>
 
-@using (Html.BeginForm("Index", "Equipments", FormMethod.Get, new { @class = "pull-left search-form" }))
+@using (Html.BeginForm("Index", "Equipment", FormMethod.Get, new { @class = "pull-left search-form" }))
 {
     <p>
         Equipment Name : @Html.TextBox("strSearch", null, new {@class="form-control"})
@@ -40,7 +40,7 @@
             @Html.DisplayNameFor(model => model.ClaimType)
         </th>
         <th class="text-center">
-            Claim Amount
+            Standard Price for Claim
         </th>
         <th class="text-center">
             Stock Count

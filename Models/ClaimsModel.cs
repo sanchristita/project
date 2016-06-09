@@ -13,19 +13,19 @@ namespace ChemisTrackCrud.Models
 
         public StudentsModel Student { get; set; }
         public int StudentID { get; set; }
-        public string RegistrationNumber { get; set; }
+
+        public int Year { get; set; }
+
+        [DataType(DataType.Date)]
+        [Display(Name = "Date")]
+        public DateTime ClaimDate { get; set; }
 
         public EquipmentsModel equipment{ get; set; }
         public int EquipmentID { get; set; }
 
         public int Quantity { get; set; }
 
-        public decimal ClaimAmount {
-            get {
-                return Quantity * equipment.claimStandardPrice;
-            }
-        }
+        public decimal ClaimAmount { get; set; }
 
-        public decimal TotalClaim { get; set; }
     }
 }

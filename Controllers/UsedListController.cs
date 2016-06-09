@@ -9,6 +9,7 @@ using ChemisTrackCrud.Models;
 
 namespace ChemisTrackCrud.Controllers
 {
+    [Authorize(Users = "admin, labuser")]
     public class UsedListController : Controller
     {
         private Context db = new Context();
@@ -16,22 +17,22 @@ namespace ChemisTrackCrud.Controllers
         //
         // GET: /UsedList/
 
-        public ViewResult Index(string UsedChemicals, string strSearch)
+        public ViewResult Index(string ChemicalUsedListNames, string strSearch)
         {
             var iupac = from j in db.UsedLists.Include(c => c.Chemicals)
                         select j;
 
             var ChemicalsUsedList = from c in iupac
-                                        orderby c.Chemicals.ChemicalName
-                                        select c.Chemicals.ChemicalName;
+                                        orderby c.Chemicals.ChemicalID
+                                        select c.Chemicals.ChemicalID;
 
             ViewBag.ChemicalUsedListNames = new SelectList(ChemicalsUsedList.Distinct());
 
             if (!string.IsNullOrEmpty(strSearch))
                 iupac = iupac.Where(m => m.Chemicals.ChemicalName.Contains(strSearch));
 
-            if (!string.IsNullOrEmpty(UsedChemicals))
-                iupac = iupac.Where(m => m.Chemicals.ChemicalName == UsedChemicals);
+            if (!string.IsNullOrEmpty(ChemicalUsedListNames))
+                iupac = iupac.Where(m => m.Chemicals.ChemicalName == ChemicalUsedListNames);
 
             return View(iupac);
 
@@ -41,22 +42,22 @@ namespace ChemisTrackCrud.Controllers
         // 
         // Report
 
-        public ViewResult Report(string UsedChemicals, string strSearch, DateTime? startDate, DateTime? endDate)
+        public ViewResult Report(string ChemicalUsedListNames, string strSearch, DateTime? startDate, DateTime? endDate)
         {
             var iupac = from j in db.UsedLists.Include(c => c.Chemicals)
                         select j;
 
             var ChemicalsUsedList = from c in iupac
                                     orderby c.Chemicals.ChemicalName
-                                    select c.Chemicals.ChemicalName;
+                                    select c.Chemicals.ChemicalID;
 
             ViewBag.ChemicalUsedListNames = new SelectList(ChemicalsUsedList.Distinct());
 
             if (!string.IsNullOrEmpty(strSearch))
                 iupac = iupac.Where(m => m.Chemicals.ChemicalName.Contains(strSearch));
 
-            if (!string.IsNullOrEmpty(UsedChemicals))
-                iupac = iupac.Where(m => m.Chemicals.ChemicalName == UsedChemicals);
+            if (!string.IsNullOrEmpty(ChemicalUsedListNames))
+                iupac = iupac.Where(m => m.Chemicals.ChemicalName == ChemicalUsedListNames);
 
             if (startDate != null)
                 iupac = iupac.Where(m => m.UsedDate >= startDate);
@@ -74,6 +75,8 @@ namespace ChemisTrackCrud.Controllers
         public ActionResult Details(int id = 0)
         {
             UsedListsModel usedlistsmodel = db.UsedLists.Find(id);
+            usedlistsmodel.Chemicals = db.Chemicals.Find(usedlistsmodel.ChemicalID); // display the name of chemical
+
             if (usedlistsmodel == null)
             {
                 return HttpNotFound();
@@ -136,8 +139,17 @@ namespace ChemisTrackCrud.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usedlistsmodel).State = EntityState.Modified;
+                UsedListsModel ulm = db.UsedLists.Find(usedlistsmodel.UsedListsID);
+                decimal oldValue = ulm.UsedQuantity;
+                ulm.UsedQuantity = usedlistsmodel.UsedQuantity;
+                db.Entry(ulm).State = EntityState.Modified;
                 db.SaveChanges();
+
+                ChemicalsModel sd = db.Chemicals.Find(usedlistsmodel.ChemicalID);
+                sd.StockCount = sd.StockCount + oldValue - usedlistsmodel.UsedQuantity;
+                db.Entry(sd).State = EntityState.Modified;
+                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             ViewBag.ChemicalID = new SelectList(db.Chemicals, "ChemicalID", "ChemicalName", usedlistsmodel.ChemicalID);
@@ -150,6 +162,8 @@ namespace ChemisTrackCrud.Controllers
         public ActionResult Delete(int id = 0)
         {
             UsedListsModel usedlistsmodel = db.UsedLists.Find(id);
+            usedlistsmodel.Chemicals = db.Chemicals.Find(usedlistsmodel.ChemicalID); // display the name of chemical
+
             if (usedlistsmodel == null)
             {
                 return HttpNotFound();
@@ -166,6 +180,12 @@ namespace ChemisTrackCrud.Controllers
             UsedListsModel usedlistsmodel = db.UsedLists.Find(id);
             db.UsedLists.Remove(usedlistsmodel);
             db.SaveChanges();
+
+            ChemicalsModel sd = db.Chemicals.Find(usedlistsmodel.ChemicalID);
+            sd.StockCount = sd.StockCount - usedlistsmodel.UsedQuantity;
+            db.Entry(sd).State = EntityState.Modified;
+            db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

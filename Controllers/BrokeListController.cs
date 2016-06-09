@@ -9,6 +9,7 @@ using ChemisTrackCrud.Models;
 
 namespace ChemisTrackCrud.Controllers
 {
+    [Authorize (Users="admin, labuser")]
     public class BrokeListController : Controller
     {
         private Context db = new Context();

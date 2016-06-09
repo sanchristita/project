@@ -138,7 +138,6 @@
     <Compile Include="Controllers\PracticalController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UsedListController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WasteManagementController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,6 +221,7 @@
     <Content Include="Public\fonts\chemistrack.svg" />
     <Content Include="Public\fonts\chemistrack.ttf" />
     <Content Include="Public\fonts\chemistrack.woff" />
+    <None Include="Properties\PublishProfiles\project.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Public\css\bootstrap-theme.min.css" />
     <Content Include="Public\css\bootstrap.min.css" />
@@ -279,7 +279,6 @@
     <Content Include="Views\UsedList\Create.cshtml" />
     <Content Include="Views\UsedList\Edit.cshtml" />
     <Content Include="Views\UsedList\Delete.cshtml" />
-    <Content Include="Views\User\index.cshtml" />
     <Content Include="Views\Equipment\Index.cshtml" />
     <Content Include="Views\Equipment\Details.cshtml" />
     <Content Include="Views\Equipment\Create.cshtml" />
@@ -300,11 +299,6 @@
     <Content Include="Views\OrderDefectChemical\Create.cshtml" />
     <Content Include="Views\OrderDefectChemical\Edit.cshtml" />
     <Content Include="Views\OrderDefectChemical\Delete.cshtml" />
-    <Content Include="Views\Practical\Index.cshtml" />
-    <Content Include="Views\Practical\Details.cshtml" />
-    <Content Include="Views\Practical\Create.cshtml" />
-    <Content Include="Views\Practical\Edit.cshtml" />
-    <Content Include="Views\Practical\Delete.cshtml" />
     <Content Include="Views\WasteManagement\Index.cshtml" />
     <Content Include="Views\WasteManagement\Details.cshtml" />
     <Content Include="Views\WasteManagement\Delete.cshtml" />
@@ -321,13 +315,18 @@
     <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Student\Report.cshtml" />
+    <Content Include="Views\WasteManagement\PrintLabel.cshtml" />
     <Content Include="Views\Claim\Index.cshtml" />
     <Content Include="Views\Claim\Details.cshtml" />
     <Content Include="Views\Claim\Create.cshtml" />
     <Content Include="Views\Claim\Edit.cshtml" />
     <Content Include="Views\Claim\Delete.cshtml" />
-    <Content Include="Views\Student\Report.cshtml" />
-    <Content Include="Views\WasteManagement\PrintLabel.cshtml" />
+    <Content Include="Views\Practical\Index.cshtml" />
+    <Content Include="Views\Practical\Details.cshtml" />
+    <Content Include="Views\Practical\Create.cshtml" />
+    <Content Include="Views\Practical\Edit.cshtml" />
+    <Content Include="Views\Practical\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

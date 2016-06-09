@@ -21,7 +21,7 @@ namespace ChemisTrackCrud.Models
         public string PracticalNo { get; set; }
 
         [Display(Name = "Year")]
-        public decimal YearOfCourse { get; set; }
+        public int YearOfCourse { get; set; }
 
         // Create object for ChemicalsModel 
         public ChemicalsModel Chemicals { get; set; }

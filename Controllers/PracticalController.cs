@@ -9,6 +9,7 @@ using ChemisTrackCrud.Models;
 
 namespace ChemisTrackCrud.Controllers
 {
+    [Authorize]
     public class PracticalController : Controller
     {
         private Context db = new Context();
@@ -18,7 +19,7 @@ namespace ChemisTrackCrud.Controllers
 
         public ActionResult Index()
         {
-            var practicals = db.Practicals.Include(p => p.AvailableChemicls).Include(p => p.AvailableEquipments);
+            var practicals = db.Practicals.Include(p => p.chemicalmodel).Include(q => q.Equipmentmodel);
             return View(practicals.ToList());
         }
 
@@ -37,7 +38,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // GET: /Practical/Create
-
+        [Authorize(Users = "admin, labuser")]
         public ActionResult Create()
         {
             ViewBag.ChemicalID = new SelectList(db.Chemicals, "ChemicalID", "ChemicalName");
@@ -47,7 +48,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // POST: /Practical/Create
-
+        [Authorize(Users = "admin, labuser")]
         [HttpPost]
         public ActionResult Create(PracticalsModel practicalsmodel)
         {
@@ -65,7 +66,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // GET: /Practical/Edit/5
-
+        [Authorize(Users = "admin, labuser")]
         public ActionResult Edit(int id = 0)
         {
             PracticalsModel practicalsmodel = db.Practicals.Find(id);
@@ -80,7 +81,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // POST: /Practical/Edit/5
-
+        [Authorize(Users = "admin, labuser")]
         [HttpPost]
         public ActionResult Edit(PracticalsModel practicalsmodel)
         {
@@ -97,7 +98,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // GET: /Practical/Delete/5
-
+        [Authorize(Users = "admin, labuser")]
         public ActionResult Delete(int id = 0)
         {
             PracticalsModel practicalsmodel = db.Practicals.Find(id);
@@ -110,7 +111,7 @@ namespace ChemisTrackCrud.Controllers
 
         //
         // POST: /Practical/Delete/5
-
+        [Authorize(Users = "admin, labuser")]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {

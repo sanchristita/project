@@ -9,6 +9,7 @@ using ChemisTrackCrud.Models;
 
 namespace ChemisTrackCrud.Controllers
 {
+    [Authorize(Users = "admin, labuser")]
     public class EquipmentInventoryController : Controller
     {
         private Context db = new Context();
@@ -40,7 +41,7 @@ namespace ChemisTrackCrud.Controllers
         //
         // Report 
 
-        public ViewResult Report (string EquipmentInventories, string strSearch, DateTime? startDate, DateTime? endDate)
+        public ViewResult Report (string strSearch, DateTime? startDate, DateTime? endDate)
         {
             var equip = from j in db.EquipmentsInventory.Include(e => e.Equipments)
                         select j;
@@ -53,9 +54,6 @@ namespace ChemisTrackCrud.Controllers
 
             if (!string.IsNullOrEmpty(strSearch))
                 equip = equip.Where(m => m.Equipments.EquipmentName.Contains(strSearch));
-
-            if (!string.IsNullOrEmpty(EquipmentInventories))
-                equip = equip.Where(m => m.Equipments.EquipmentName == EquipmentInventories);
 
             if (startDate != null)
                 equip = equip.Where(m => m.EquipmentOrderDate >= startDate);
@@ -73,6 +71,7 @@ namespace ChemisTrackCrud.Controllers
         public ActionResult Details(int id = 0)
         {
             EquipmentsInventoryModel equipmentsinventorymodel = db.EquipmentsInventory.Find(id);
+            equipmentsinventorymodel.Equipments = db.Equipments.Find(equipmentsinventorymodel.EquipmentID); //display the name of equipment
 
             if (equipmentsinventorymodel == null)
             {
@@ -99,6 +98,13 @@ namespace ChemisTrackCrud.Controllers
             if (ModelState.IsValid)
             {
                 db.EquipmentsInventory.Add(equipmentsinventorymodel);
+                db.SaveChanges();
+
+                // calculate the Total stock for specific equipment
+
+                EquipmentsModel em = db.Equipments.Find(equipmentsinventorymodel.EquipmentID);
+                em.EquipmentStockCount = em.EquipmentStockCount + equipmentsinventorymodel.EquipmentQuantity;
+                db.Entry(em).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

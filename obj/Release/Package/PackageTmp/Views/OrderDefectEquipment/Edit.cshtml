@@ -1,0 +1,69 @@
+﻿@model ChemisTrackCrud.Models.OrderDefectEquipmentsModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>OrderDefectEquipmentsModel</legend>
+
+        @Html.HiddenFor(model => model.OrderDefectEquipmentsID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrderNo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrderNo)
+            @Html.ValidationMessageFor(model => model.OrderNo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EquipmenDefectDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EquipmenDefectDate)
+            @Html.ValidationMessageFor(model => model.EquipmenDefectDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EquipmentName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EquipmentName)
+            @Html.ValidationMessageFor(model => model.EquipmentName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DefectEquimentsQuantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DefectEquimentsQuantity)
+            @Html.ValidationMessageFor(model => model.DefectEquimentsQuantity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DefectEquipmentSupplierName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DefectEquipmentSupplierName)
+            @Html.ValidationMessageFor(model => model.DefectEquipmentSupplierName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

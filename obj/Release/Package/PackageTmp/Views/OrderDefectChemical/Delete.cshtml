@@ -1,0 +1,41 @@
+﻿@model ChemisTrackCrud.Models.OrderDefectChemicalsModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="item-title"><span class="icon-chemical padd-right"></span>Delete Defect Chemical</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.OrderNo) : </div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.OrderNo)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.DefectDate) : </div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.DefectDate)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.chemicals.ChemicalName) : </div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.chemicals.ChemicalName)</div>
+    </div>
+
+    <div class="form-group clearfix">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.DefectQuantity) : </div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.DefectQuantity)</div>
+    </div>
+
+    <div class="display-label">
+        <div class="col-sm-4 text-right">@Html.DisplayNameFor(model => model.DefectSupplierName) : </div>
+        <div class="col-sm-6">@Html.DisplayFor(model => model.DefectSupplierName)</div>
+    </div>
+
+@using (Html.BeginForm("Delete","OrderDefectChemical",FormMethod.Post)) {
+    <p  class="col-sm-10 text-center">
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
+    </p>
+}

@@ -1,0 +1,51 @@
+﻿@model ChemisTrackCrud.Models.ClaimsModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 class="item-title"><span class="icon-dollar padd-right"></span>Create New Claim</h2>
+
+@using (Html.BeginForm("Create","Claim",FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.StudentID, "Student", new {@class = "col-sm-4 text-right" })
+            @Html.DropDownList("StudentID", (IEnumerable<SelectListItem>)ViewBag.StudentID, new { @class= "col-sm-6 form-control"})
+            @Html.ValidationMessageFor(model => model.StudentID)
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.Year, new {@class = "col-sm-4 text-right" })
+            @Html.TextBoxFor(model => model.Year, new { @class= "col-sm-6 form-control"})
+            @Html.ValidationMessageFor(model => model.Year)
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.ClaimDate, new {@class = "col-sm-4 text-right" })
+            @Html.TextBoxFor(model => model.ClaimDate, new { @class= "col-sm-6 form-control datepicker"})
+            @Html.ValidationMessageFor(model => model.ClaimDate)
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.EquipmentID, "equipment", new {@class = "col-sm-4 text-right" })
+            @Html.DropDownList("EquipmentID", (IEnumerable<SelectListItem>)ViewBag.EquipmentID, new { @class= "col-sm-6 form-control"})
+            @Html.ValidationMessageFor(model => model.EquipmentID)
+        </div>
+
+        <div class="form-group clearfix">
+            @Html.LabelFor(model => model.Quantity, new {@class = "col-sm-4 text-right" })
+            @Html.TextBoxFor(model => model.Quantity, new { @class= "col-sm-6 form-control"})
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+
+        <p class="col-sm-10 text-center">
+            <input type="submit" value="Create" class="btn btn-success" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class="btn btn-default"})
+        </p>
+    
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
